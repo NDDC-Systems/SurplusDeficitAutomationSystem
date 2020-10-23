@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace SurplusDeficitAutomationSystem.Models
 {
-    public class ProgramsModel
+    public class ProgramModel
     {
         public int ProgramId { get; set; }
         public string ProgramName { get; set; }
