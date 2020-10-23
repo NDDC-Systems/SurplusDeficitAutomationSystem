@@ -4,131 +4,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ElderSource</title>
-    <!--<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />-->
-    <style id='astra-theme-css-inline-css'>
-        html{
-            font-size:93.75%;
-        }
-        .top-nav {
-            display: flex;
-        }
-        #nav-menu {
-            display: flex;
-        }
-        .nav-item {
-            display: inline-flex;
-            color: #3a3a3a;
-            -webkit-box-pack: center;
-            -webkit-justify-content: center;
-            -moz-box-pack: center;
-            -ms-flex-pack: center;
-            justify-content: center;
-            -webkit-box-orient: vertical;
-            -webkit-box-direction: normal;
-            -webkit-flex-direction: column;
-            -moz-box-orient: vertical;
-            -moz-box-direction: normal;
-            -ms-flex-direction: column;
-            flex-direction: column;
-
-            height: 100%;
-            -webkit-box-align: center;
-            -webkit-align-items: center;
-            -moz-box-align: center;
-            -ms-flex-align: center;
-            align-items: center;
-
-        }
-        a,.page-title{
-            color:#0274be;
-        }
-        a:hover,a:focus{color:#3a3a3a;}
-        body,button,input,select,textarea,.ast-button,.ast-custom-button{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;font-weight:inherit;font-size:15px;font-size:1rem;}
-        blockquote{color:#000000;}
-        h1,.entry-content h1,h2,.entry-content h2,h3,.entry-content h3,h4,.entry-content h4,h5,.entry-content h5,h6,.entry-content h6,.site-title,.site-title a{font-family:'EB Garamond',serif;font-weight:700;}
-        .site-title{font-size:35px;font-size:2.3333333333333rem;}
-        .ast-archive-description .ast-archive-title{font-size:40px;font-size:2.6666666666667rem;}
-        .site-header .site-description{font-size:15px;font-size:1rem;}
-        .entry-title{font-size:40px;font-size:2.6666666666667rem;}
-        .comment-reply-title{font-size:24px;font-size:1.6rem;}
-        .ast-comment-list #cancel-comment-reply-link{font-size:15px;font-size:1rem;}
-        h1,.entry-content h1{font-size:40px;font-size:2.6666666666667rem;font-family:'EB Garamond',serif;}
-        h2,.entry-content h2{font-size:30px;font-size:2rem;font-family:'EB Garamond',serif;}
-        h3,.entry-content h3{font-size:25px;font-size:1.6666666666667rem;font-family:'EB Garamond',serif;}
-        h4,.entry-content h4{font-size:20px;font-size:1.3333333333333rem;}
-        h5,.entry-content h5{font-size:18px;font-size:1.2rem;}
-        h6,.entry-content h6{font-size:15px;font-size:1rem;}
-        .ast-single-post .entry-title,.page-title{font-size:30px;font-size:2rem;}
-        #secondary,#secondary button,#secondary input,#secondary select,#secondary textarea{font-size:15px;font-size:1rem;}
-        ::selection{background-color:#0274be;color:#ffffff;}
-        body,h1,.entry-title a,.entry-content h1,h2,.entry-content h2,h3,.entry-content h3,h4,.entry-content h4,h5,.entry-content h5,h6,.entry-content h6,.wc-block-grid__product-title{color:#3a3a3a;}
-        .tagcloud a:hover,.tagcloud a:focus,.tagcloud a.current-item{color:#ffffff;border-color:#0274be;background-color:#0274be;}
-        .main-header-menu .menu-link,.ast-header-custom-item a{color:#3a3a3a;}
-        .main-header-menu .menu-item:hover > .menu-link,.main-header-menu .menu-item:hover > .ast-menu-toggle,.main-header-menu .ast-masthead-custom-menu-items a:hover,.main-header-menu .menu-item.focus > .menu-link,.main-header-menu .menu-item.focus > .ast-menu-toggle,.main-header-menu .current-menu-item > .menu-link,.main-header-menu .current-menu-ancestor > .menu-link,.main-header-menu .current-menu-item > .ast-menu-toggle,.main-header-menu .current-menu-ancestor > .ast-menu-toggle{color:#0274be;}
-        input:focus,input[type="text"]:focus,input[type="email"]:focus,input[type="url"]:focus,input[type="password"]:focus,input[type="reset"]:focus,input[type="search"]:focus,textarea:focus{border-color:#0274be;}
-        input[type="radio"]:checked,input[type=reset],input[type="checkbox"]:checked,input[type="checkbox"]:hover:checked,input[type="checkbox"]:focus:checked,input[type=range]::-webkit-slider-thumb{border-color:#0274be;background-color:#0274be;box-shadow:none;}
-        .site-footer a:hover + .post-count,.site-footer a:focus + .post-count{background:#0274be;border-color:#0274be;}
-        .footer-adv .footer-adv-overlay{border-top-style:solid;border-top-color:#7a7a7a;}
-        .ast-comment-meta{line-height:1.666666667;font-size:12px;font-size:0.8rem;}
-        .single .nav-links .nav-previous,.single .nav-links .nav-next,.single .ast-author-details .author-title,.ast-comment-meta{color:#0274be;}
-        .entry-meta,.entry-meta *{line-height:1.45;color:#0274be;}
-        .entry-meta a:hover,.entry-meta a:hover *,.entry-meta a:focus,.entry-meta a:focus *{color:#3a3a3a;}
-        .ast-404-layout-1 .ast-404-text{font-size:200px;font-size:13.333333333333rem;}
-        .widget-title{font-size:21px;font-size:1.4rem;color:#3a3a3a;}
-        #cat option,.secondary .calendar_wrap thead a,.secondary .calendar_wrap thead a:visited{color:#0274be;}
-        .secondary .calendar_wrap #today,.ast-progress-val span{background:#0274be;}
-        .secondary a:hover + .post-count,.secondary a:focus + .post-count{background:#0274be;border-color:#0274be;}
-        .calendar_wrap #today > a{color:#ffffff;}
-        .ast-pagination a,.page-links .page-link,.single .post-navigation a{color:#0274be;}
-        .ast-pagination a:hover,.ast-pagination a:focus,.ast-pagination > span:hover:not(.dots),.ast-pagination > span.current,.page-links > .page-link,.page-links .page-link:hover,.post-navigation a:hover{color:#3a3a3a;}
-        .ast-header-break-point .ast-mobile-menu-buttons-minimal.menu-toggle{background:transparent;color:#0274be;}
-        .ast-header-break-point .ast-mobile-menu-buttons-outline.menu-toggle{background:transparent;border:1px solid #0274be;color:#0274be;}
-        .ast-header-break-point .ast-mobile-menu-buttons-fill.menu-toggle{background:#0274be;}
-      
-        .menu-toggle,button,.ast-button,.ast-custom-button,.button,input#submit,input[type="button"],input[type="submit"],input[type="reset"]{color:#ffffff;border-color:#0274be;background-color:#0274be;border-radius:2px;padding-top:10px;padding-right:40px;padding-bottom:10px;padding-left:40px;font-family:inherit;font-weight:inherit;}
-        button:focus,.menu-toggle:hover,button:hover,.ast-button:hover,.button:hover,input[type=reset]:hover,input[type=reset]:focus,input#submit:hover,input#submit:focus,input[type="button"]:hover,input[type="button"]:focus,input[type="submit"]:hover,input[type="submit"]:focus{color:#ffffff;background-color:#3a3a3a;border-color:#3a3a3a;}
-
-        .ast-desktop .main-header-menu.submenu-with-border .sub-menu,.ast-desktop .main-header-menu.submenu-with-border .astra-full-megamenu-wrapper{border-color:#0274be;}
-        .ast-desktop .main-header-menu.submenu-with-border .sub-menu{border-top-width:2px;border-right-width:0px;border-left-width:0px;border-bottom-width:0px;border-style:solid;}
-        .ast-desktop .main-header-menu.submenu-with-border .sub-menu .sub-menu{top:-2px;}
-        .ast-desktop .main-header-menu.submenu-with-border .sub-menu .menu-link,.ast-desktop .main-header-menu.submenu-with-border .children .menu-link{border-bottom-width:0px;border-style:solid;border-color:#eaeaea;}
-        .ast-small-footer{border-top-style:solid;border-top-width:1px;border-top-color:#7a7a7a;}
-        .ast-small-footer-wrap{text-align:center;}
-        .ast-breadcrumbs .trail-browse,.ast-breadcrumbs .trail-items,.ast-breadcrumbs .trail-items li{display:inline-block;margin:0;padding:0;border:none;background:inherit;text-indent:0;}
-        .ast-breadcrumbs .trail-browse{font-size:inherit;font-style:inherit;font-weight:inherit;color:inherit;}
-        .ast-breadcrumbs .trail-items{list-style:none;}
-        .trail-items li::after{padding:0 0.3em;content:"\00bb";}
-        .trail-items li:last-of-type::after{display:none;}
-        .elementor-widget-heading .elementor-heading-title{margin:0;}
-        .ast-header-break-point .main-header-bar{border-bottom-width:1px;}
-        .ast-safari-browser-less-than-11 .main-header-menu .menu-item, .ast-safari-browser-less-than-11 .main-header-bar .ast-masthead-custom-menu-items{display:block;}
-        .main-header-menu .menu-item, .main-header-bar .ast-masthead-custom-menu-items{-js-display:flex;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-moz-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;-moz-box-orient:vertical;-moz-box-direction:normal;-ms-flex-direction:column;flex-direction:column;}
-        .main-header-menu > .menu-item > .menu-link{height:100%;-webkit-box-align:center;-webkit-align-items:center;-moz-box-align:center;-ms-flex-align:center;align-items:center;-js-display:flex;display:flex;}
-        .ast-primary-menu-disabled .main-header-bar .ast-masthead-custom-menu-items{flex:unset;}
-    </style>
-    <link rel='stylesheet' id='astra-google-fonts-css' href='//fonts.googleapis.com/css?family=EB+Garamond%3A700%2C&#038;display=fallback&#038;ver=2.5.5' media='all' />
-    <link rel='stylesheet' id='astra-menu-animation-css' href='https://www.myeldersource.org/wp-content/themes/astra/assets/css/minified/menu-animation.min.css?ver=2.5.5' media='all' />
-    <link rel='stylesheet' id='layerslider-css' href='https://www.myeldersource.org/wp-content/plugins/LayerSlider/static/layerslider/css/layerslider.css?ver=6.1.6' media='all' />
-    <link rel='stylesheet' id='ls-google-fonts-css' href='https://fonts.googleapis.com/css?family=Lato:100,300,regular,700,900%7COpen+Sans:300%7CIndie+Flower:regular%7COswald:300,regular,700&#038;subset=latin%2Clatin-ext' media='all' />
-    <link rel='stylesheet' id='wp-block-library-css' href='https://www.myeldersource.org/wp-includes/css/dist/block-library/style.min.css?ver=5.5.1' media='all' />
-    <link rel='stylesheet' id='spiffycal-styles-css' href='https://www.myeldersource.org/wp-content/plugins/spiffy-calendar/styles/default.css?ver=1598294465' media='all' />
-    <link rel='stylesheet' id='google_fonts-css' href='//fonts.googleapis.com/css?family=Roboto%3A700%2C400%2C+300%7Clato%3A700%2C400%2C300%7CSource+Sans+Pro%3A700%2C400%2C300&#038;subset=latin%2Clatin-ext&#038;ver=1' media='all' />
-    <link rel='stylesheet' id='child-min-style-css' href='https://www.myeldersource.org/wp-content/themes/astra-child/css/main.min.css?v=3&#038;ver=5.5.1' media='all' />
-    <link rel='stylesheet' id='elementor-icons-css' href='https://www.myeldersource.org/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=5.5.0' media='all' />
-    <link rel='stylesheet' id='elementor-animations-css' href='https://www.myeldersource.org/wp-content/plugins/elementor/assets/lib/animations/animations.min.css?ver=2.8.5' media='all' />
-    <link rel='stylesheet' id='elementor-frontend-css' href='https://www.myeldersource.org/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=2.8.5' media='all' />
-    <link rel='stylesheet' id='elementor-pro-css' href='https://www.myeldersource.org/wp-content/plugins/elementor-pro/assets/css/frontend.min.css?ver=2.8.3' media='all' />
-    <link rel='stylesheet' id='elementor-global-css' href='https://www.myeldersource.org/wp-content/uploads/elementor/css/global.css?ver=1580929337' media='all' />
-    <link rel='stylesheet' id='elementor-post-24-css' href='https://www.myeldersource.org/wp-content/uploads/elementor/css/post-24.css?ver=1589981387' media='all' />
-    <link rel='stylesheet' id='elementor-post-5-css' href='https://www.myeldersource.org/wp-content/uploads/elementor/css/post-5.css?ver=1592487566' media='all' />
-    <link rel='stylesheet' id='elementor-post-61-css' href='https://www.myeldersource.org/wp-content/uploads/elementor/css/post-61.css?ver=1589981155' media='all' />
-    <link rel='stylesheet' id='elementor-post-19-css' href='https://www.myeldersource.org/wp-content/uploads/elementor/css/post-19.css?ver=1580929338' media='all' />
-    <link rel='stylesheet' id='google-fonts-1-css' href='https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto+Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CEB+Garamond%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;ver=5.5.1' media='all' />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
     <header>
-        <nav class="top-nav navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ElderSource</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -138,8 +19,12 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <partial name="_LoginPartial" />
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                        <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
                     </ul>
                 </div>
             </div>
