@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SurplusDeficitAutomationSystem.Models;
+using SurplusDeficitAutomationSystem.ViewModels;
 
 namespace SurplusDeficitAutomationSystem.Controllers
 {
@@ -19,6 +20,16 @@ namespace SurplusDeficitAutomationSystem.Controllers
         {
             var model = _reportRepository.GetAllReports();
             return View(model);
+        }
+
+        public ViewResult Details()
+        {
+            ReportDetailsViewModel reportDetailsViewModel = new ReportDetailsViewModel()
+            {
+                Report = _reportRepository.GetReport(1),
+                PageTitle = "Report Details"
+            };
+            return View(reportDetailsViewModel);
         }
 
         [HttpGet]

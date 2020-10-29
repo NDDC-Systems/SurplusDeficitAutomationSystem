@@ -32,7 +32,7 @@ namespace SurplusDeficitAutomationSystem
             services.AddDbContextPool<AppDbContext>(
                 options => options.UseSqlServer(_config.GetConnectionString("SurplusDeficitDb")));
             services.AddMvc().AddXmlDataContractSerializerFormatters();
-            services.AddTransient<IReportRepository, ReportRepository>();
+            services.AddTransient<IReportRepository, SQLReportRepository>();
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
