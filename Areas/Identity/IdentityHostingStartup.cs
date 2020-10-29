@@ -17,7 +17,7 @@ namespace SurplusDeficitAutomationSystem.Areas.Identity
             builder.ConfigureServices((context, services) => {
                 services.AddDbContext<SurplusDeficitAutomationSystemContext>(options =>
                     options.UseSqlServer(
-                        context.Configuration.GetConnectionString("SurplusDeficitAutomationSystemContextConnection")));
+                        context.Configuration.GetConnectionString("IdentityDb")));
 
                 services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
                     .AddEntityFrameworkStores<SurplusDeficitAutomationSystemContext>();

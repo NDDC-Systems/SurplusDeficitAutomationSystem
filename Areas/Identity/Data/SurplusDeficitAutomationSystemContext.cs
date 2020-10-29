@@ -5,15 +5,21 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using SurplusDeficitAutomationSystem.Models;
 
 namespace SurplusDeficitAutomationSystem.Data
 {
     public class SurplusDeficitAutomationSystemContext : IdentityDbContext<IdentityUser>
     {
+        //private readonly IReportRepository _reportRepository;
         public SurplusDeficitAutomationSystemContext(DbContextOptions<SurplusDeficitAutomationSystemContext> options)
             : base(options)
         {
+            //_reportRepository = this.GetService<IReportRepository>();
         }
+
+        //public DbSet<Report> Reports { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
