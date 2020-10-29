@@ -18,21 +18,21 @@ namespace SurplusDeficitAutomationSystem
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        private IConfiguration _config;
+        public Startup(IConfiguration config)
         {
-            Configuration = configuration;
+            _config = config;
         }
 
-        public IConfiguration Configuration { get; }
+        //public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContextPool<SurplusDeficitAutomationSystemContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("SurplusDeficitDb")));
+            services.AddDbContextPool<AppDbContext>(
+                options => options.UseSqlServer(_config.GetConnectionString("SurplusDeficitDb")));
             services.AddMvc().AddXmlDataContractSerializerFormatters();
-            services.AddScoped<IReportRepository, SQLReportRepository>();
+            services.AddTransient<IReportRepository, ReportRepository>();
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
@@ -51,6 +51,7 @@ namespace SurplusDeficitAutomationSystem
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 

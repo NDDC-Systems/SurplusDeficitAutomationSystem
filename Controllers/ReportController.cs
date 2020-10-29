@@ -15,12 +15,26 @@ namespace SurplusDeficitAutomationSystem.Controllers
         {
             _reportRepository = reportRepository;
         }
-        public IActionResult Index()
+        public ViewResult Index()
+        {
+            var model = _reportRepository.GetAllReports();
+            return View(model);
+        }
+
+        [HttpGet]
+        public ViewResult NewReport()
         {
             return View();
         }
-        public IActionResult NewReport()
+
+        [HttpPost]
+        public IActionResult NewReport(Report report)
         {
+            if (ModelState.IsValid)
+            {
+                Report newReport = _reportRepository.Add(report);
+            }
+            
             return View();
         }
     }

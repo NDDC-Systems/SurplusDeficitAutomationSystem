@@ -8,9 +8,9 @@ namespace SurplusDeficitAutomationSystem.Models
 {
     public class SQLReportRepository : IReportRepository
     {
-        private readonly SurplusDeficitAutomationSystemContext context;
-
-        public SQLReportRepository(SurplusDeficitAutomationSystemContext context)
+        private readonly AppDbContext context;
+         
+        public SQLReportRepository(AppDbContext context)
         {
             this.context = context;
         }
