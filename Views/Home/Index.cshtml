@@ -8,56 +8,80 @@
 
 <html>
 <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
-        .square {
-            color: black;
-            border-style: solid;
-            border-width: 2px;
-            width: 300px;
-            height: 300px;
-            text-align: center;
-            margin: 10px;
-            border-radius: 25px;
-            padding: 20px;
-            float: left;
-            display: inline;
-        }
-        .nav-item {
+        .direction {
             font-family: Garamond;
+            bottom: 10px;
+            left: 24px;
             font-size: 28px;
-            font-weight: bold;
-            color: #405361;
-            padding-left: 6px;
-            padding-right: 6px;
-            padding-top: 18px;
-            padding-bottom: 18px;
-            margin-bottom:auto;
         }
+
+        .wrapper {
+            display: grid;
+            grid-template-columns: 150px 150px 150px;
+            grid-gap: 200px;
+            background-color: #fff;
+            color: #444;
+        }
+
+        .box {
+            background-color: rgba(100, 162, 182, 0.87);
+            color: #fff;
+            border-radius: 10px;
+            padding: 100px;
+            font-size: 150%;
+            float: left;
+            height: 300px;
+            width: 300px;
+            box-shadow: 0px 13px 10px black;
+            
+        }
+
+        .column {
+            float: left;
+            width: 33.33%;
+        }
+
+        /* Clear floats after the columns */
+        .box:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        * {
+  box-sizing: border-box;
+}
     </style>
 </head>
 <body>
-    <div class="square">
-        <h3 class="nav-item">Provider Reports Page</h3>
-        <div class="nav-item">
-            <p><a class="nav-item" id="reports" asp-area="Views" asp-page="/Report/Index">Reports</a></p>
+
+        <div class="row">
+            <div class="wrapper">
+                <a asp-area="" asp-controller="Report" asp-action="Index"
+                   style="        display: inline-block;
+        background-color: rgba(100, 162, 182, 0.87);
+        color: #fff;
+        border-radius: 10px;
+        padding: 100px;
+        font-size: 28px;
+        float: left;
+        height: 300px;
+        width: 300px;
+        font-family: Garamond;
+        box-shadow: 0px 13px 10px black;
+    "><i class="material-icons" style="font-size: 80px;padding-left:15px;">description</i>Reports</a>
+
+
+                <div class="box b">
+                    <div class="direction" id="templates"><i class="material-icons" style="font-size: 80px; padding-left:15px;">content_copy</i>Templates</div>
+                </div>
+                <div class="box c">
+                    <div class="direction" id="settings"><i class="material-icons" style="font-size: 80px; padding-left:15px;">settings</i>Settings</div>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="square">
-        <h3 class="nav-item">Templates Page</h3>
-        <div class="nav-item">
-            <p class="nav-item" id="templates">Templates</p>
-        </div>
-    </div>
-    <div class="square">
-        <h3 class="nav-item">Providers Settings Page</h3>
-        <div class="nav-item">
-            <p class="nav-item" id="settings">Settings</p>
-        </div>
-    </div>
-  <div class="text-center">
-    <h1 class="display-4">Welcome To The ElderSource Provider Portal!</h1>
-    <p>Work in Progress</p>
-</div>
+    
 </body>
 </html>
 
