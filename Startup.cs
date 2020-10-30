@@ -24,17 +24,6 @@ namespace SurplusDeficitAutomationSystem
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddRazorPages();
-            services.Configure<Microsoft.AspNetCore.Identity.IdentityOptions>(options =>
-            {
-                // Default Password settings.
-                options.Password.RequireDigit = true;
-                options.Password.RequireLowercase = false;
-                options.Password.RequireNonAlphanumeric = false;
-                options.Password.RequireUppercase = false;
-                options.Password.RequiredLength = 3;
-                options.Password.RequiredUniqueChars = 1;
-            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,7 +44,6 @@ namespace SurplusDeficitAutomationSystem
 
             app.UseRouting();
 
-            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -63,7 +51,6 @@ namespace SurplusDeficitAutomationSystem
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
-                endpoints.MapRazorPages();
             });
         }
     }
