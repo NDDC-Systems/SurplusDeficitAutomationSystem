@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SurplusDeficitAutomationSystem.Models;
 
 namespace SurplusDeficitAutomationSystem.Migrations.AppDb
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201204061142_InitialMigration")]
+    partial class InitialMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -26,8 +28,8 @@ namespace SurplusDeficitAutomationSystem.Migrations.AppDb
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("AdminId")
-                        .HasColumnType("int");
+                    b.Property<string>("Admin")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Approved")
                         .HasColumnType("bit");
@@ -38,11 +40,11 @@ namespace SurplusDeficitAutomationSystem.Migrations.AppDb
                     b.Property<int>("ContractId")
                         .HasColumnType("int");
 
+                    b.Property<string>("Provider")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("SubmitDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("TemplateId")
-                        .HasColumnType("int");
 
                     b.HasKey("ReportId");
 
