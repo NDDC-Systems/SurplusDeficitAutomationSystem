@@ -12,7 +12,7 @@ namespace SurplusDeficitAutomationSystem.Models
         public int ContractId { get; set; }
         public int AdminId { get; set; }
         public DateTime SubmitDate { get; set; }
-        public Boolean Approved { get; set; }
+        public bool Approved { get; set; }
         public DateTime? ApprovedDate { get; set; }
     }
 }

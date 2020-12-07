@@ -8,7 +8,7 @@ namespace SurplusDeficitAutomationSystem.ViewModels
 {
     public class ReportDetailsViewModel
     {
-        public Report Report { get; set; }
+        public List<Report> Report { get; set; }
         public string PageTitle { get; set; }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using SurplusDeficitAutomationSystem.Areas;
 using SurplusDeficitAutomationSystem.Models;
 using SurplusDeficitAutomationSystem.ViewModels;
 
@@ -24,9 +25,12 @@ namespace SurplusDeficitAutomationSystem.Controllers
 
         public ViewResult Details()
         {
+            IEnumerable<Report> reports = _reportRepository.GetAllReports();
+            List<Report> reportList = reports.ToList();
+
             ReportDetailsViewModel reportDetailsViewModel = new ReportDetailsViewModel()
             {
-                Report = _reportRepository.GetReport(1),
+                Report = reportList,
                 PageTitle = "Report Details"
             };
             return View(reportDetailsViewModel);
