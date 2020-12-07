@@ -12,6 +12,10 @@ namespace SurplusDeficitAutomationSystem.Controllers
         {
             return View();
         }
+        public ViewResult Index()
+        {
+            return View();
+        }
         public IActionResult AdminAccount()
         {
             return View();
