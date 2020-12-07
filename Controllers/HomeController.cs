@@ -17,7 +17,7 @@ namespace SurplusDeficitAutomationSystem.Controllers
         {
             _logger = logger;
         }
-        [Microsoft.AspNetCore.Authorization.Authorize]
+        //[Microsoft.AspNetCore.Authorization.Authorize]
         public IActionResult Index()
         {
             return View();

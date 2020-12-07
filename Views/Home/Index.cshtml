@@ -40,7 +40,7 @@
 
         .column {
             float: left;
-            width: 33.33%;
+            width: 25%;
         }
 
         /* Clear floats after the columns */
@@ -56,10 +56,10 @@
 </head>
 <body>
 
-        <div class="row">
-            <div class="wrapper">
-                <a asp-area="" asp-controller="Report" asp-action="Index"
-                   style="        display: inline-block;
+            <div class="row">
+                <div class="wrapper">
+                    <a asp-area="" asp-controller="Report" asp-action="Index"
+                       style="        display: inline-block;
         background-color: rgba(100, 162, 182, 0.87);
         color: #fff;
         border-radius: 10px;
@@ -73,15 +73,17 @@
     "><i class="material-icons" style="font-size: 80px;padding-left:15px;">description</i>Reports</a>
 
 
-                <div class="box b">
-                    <div class="direction" id="templates"><i class="material-icons" style="font-size: 80px; padding-left:15px;">content_copy</i>Templates</div>
-                </div>
-                <div class="box c">
-                    <div class="direction" id="settings"><i class="material-icons" style="font-size: 80px; padding-left:15px;">settings</i>Settings</div>
+
+                    <div class="box b">
+                        <div class="direction" id="templates"><i class="material-icons" style="font-size: 80px; padding-left:15px;">content_copy</i>Templates</div>
+                    </div>
+
+                    <div class="box c">
+                        <div class="direction" id="settings"><i class="material-icons" style="font-size: 80px; padding-left:15px;">settings</i>Settings</div>
+                    </div>
                 </div>
             </div>
-        </div>
-    
+
 </body>
 </html>
 
