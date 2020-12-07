@@ -25,12 +25,9 @@ namespace SurplusDeficitAutomationSystem.Controllers
 
         public ViewResult Details()
         {
-            IEnumerable<Report> reports = _reportRepository.GetAllReports();
-            List<Report> reportList = reports.ToList();
-
             ReportDetailsViewModel reportDetailsViewModel = new ReportDetailsViewModel()
             {
-                Report = reportList,
+                Report = _reportRepository.GetReport(1),
                 PageTitle = "Report Details"
             };
             return View(reportDetailsViewModel);
