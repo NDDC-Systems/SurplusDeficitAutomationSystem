@@ -12,11 +12,11 @@ namespace SurplusDeficitAutomationSystem.ViewModels
         public IEnumerable<Report> Reports { get; set; }
         public Template Template { get; set; }
         public IEnumerable<Template> Templates { get; set; }
-        public Contract Contract { get; set; }
-        public IEnumerable<Contract> Contracts { get; set; }
+        /*public Contract Contract { get; set; }
+        public IEnumerable<Contract> Contracts { get; set; }*/
         public Admin Admin { get; set; }
         public IEnumerable<Admin> Admins { get; set; }
-        public Provider Provider { get; set; }
+        /*public Provider Provider { get; set; }
         public IEnumerable<Provider> Providers { get; set; }
         public User User { get; set; }
         public IEnumerable<User> Users { get; set; }
@@ -27,7 +27,7 @@ namespace SurplusDeficitAutomationSystem.ViewModels
         public Values Values { get; set; }
         public IEnumerable<Values> Value { get; set; }
         public ReportFieldValues ReportFieldValues { get; set; }
-        public IEnumerable<ReportFieldValues> ReportValues { get; set; }
+        public IEnumerable<ReportFieldValues> ReportValues { get; set; }*/
         public string PageTitle { get; set; }
     }
 }

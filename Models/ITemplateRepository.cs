@@ -11,6 +11,6 @@ namespace SurplusDeficitAutomationSystem.Models
         IEnumerable<Template> GetAllTemplates();
         Template Add(Template template);
         Template Update(Template templateChanges);
-        Template Delete(int id);
+        Template Delete(int Templateid);
     }
 }
