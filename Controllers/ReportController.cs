@@ -9,6 +9,7 @@ using SurplusDeficitAutomationSystem.ViewModels;
 
 namespace SurplusDeficitAutomationSystem.Controllers
 {
+    [Route("Home")]
     public class ReportController : Controller
     {
         private readonly IReportRepository _reportRepository;
@@ -17,6 +18,9 @@ namespace SurplusDeficitAutomationSystem.Controllers
         {
             _reportRepository = reportRepository;
         }
+
+        [Route("")]
+        [Route("Index")]
         public ViewResult Index()
         {
             ViewModel myModel = new ViewModel();
@@ -26,7 +30,7 @@ namespace SurplusDeficitAutomationSystem.Controllers
             //return View(model);
         }
 
-        [Route("Report/Details/{id?}")]
+        [Route("Details/{id?}")]
         public ViewResult Details(int? id)
         {
             ViewModel myModel = new ViewModel()
