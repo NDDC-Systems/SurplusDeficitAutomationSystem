@@ -15,5 +15,6 @@ namespace SurplusDeficitAutomationSystem.Models
         }
 
         public DbSet<Report> Reports { get; set; }
+        public DbSet<Template> Templates { get; set; }
     }
 }

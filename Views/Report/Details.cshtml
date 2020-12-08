@@ -7,43 +7,44 @@
 
 <h1 class="text-center">View Reports</h1>
 
-<h1>Details</h1>
-
 <div>
-    <h4>Report</h4>
     <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
+    <div class="row">
+        <div class="col-sm-2">
             @Html.DisplayNameFor(model => model.Report.ContractId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Report.ContractId)
-        </dd>
-        <dt class = "col-sm-2">
+        </div>
+        <div class="col-sm-2">
             @Html.DisplayNameFor(model => model.Report.SubmitDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Report.SubmitDate)
-        </dd>
-        <dt class = "col-sm-2">
+        </div>
+        <div class="col-sm-2">
             @Html.DisplayNameFor(model => model.Report.Approved)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Report.Approved)
-        </dd>
-        <dt class = "col-sm-2">
+        </div>
+        <div class="col-sm-2">
             @Html.DisplayNameFor(model => model.Report.AdminId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Report.AdminId)
-        </dd>
-        <dt class = "col-sm-2">
+        </div>
+        <div class="col-sm-2">
             @Html.DisplayNameFor(model => model.Report.ApprovedDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Report.ApprovedDate)
-        </dd>
-    </dl>
+        </div>
+    </div>
+    <hr class="w-100" />
+        <div class="row">
+            <div class="col-sm-2">
+                @Html.DisplayFor(model => model.Report.ContractId)
+            </div>
+            <div class="col-sm-2">
+                @Html.DisplayFor(model => model.Report.SubmitDate)
+            </div>
+            <div class="col-sm-2">
+                @Html.DisplayFor(model => model.Report.Approved)
+            </div>
+            <div class="col-sm-2">
+                @Html.DisplayFor(model => model.Report.AdminId)
+            </div>
+            <div class="col-sm-2">
+                @Html.DisplayFor(model => model.Report.ApprovedDate)
+            </div>
+        </div>
+</div>
 </div>
 <div>
     <!--<a asp-action="Edit" asp-route-id="Model.">Edit</a>-->
