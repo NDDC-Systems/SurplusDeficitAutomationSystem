@@ -15,5 +15,14 @@ namespace SurplusDeficitAutomationSystem.Models
         }
 
         public DbSet<Report> Reports { get; set; }
+        public DbSet<Template> Templates { get; set; }
+        public DbSet<Admin> Admins { get; set; }
+        public DbSet<Provider> Providers { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Field> Fields { get; set; }
+        public DbSet<Values> Values { get; set; }
+        public DbSet<TemplateFields> TemplateFields { get; set; }
+        public DbSet<Contract> Contracts { get; set; }
+        public DbSet<ReportFieldValues> ReportFieldValues { get; set; }
     }
 }

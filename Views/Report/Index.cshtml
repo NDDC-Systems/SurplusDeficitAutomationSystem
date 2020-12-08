@@ -1,7 +1,64 @@
-﻿@{
+﻿@model SurplusDeficitAutomationSystem.ViewModels.ViewModel
+
+@{
     ViewData["Title"] = "Report Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="text-center">
-    <h1 class="display-4"><a class="nav-link text-dark" asp-area="" asp-controller="Report" asp-action="NewReport">Create a New Report</a></h1>
-    <h1 class="display-4"><a class="nav-link text-dark" asp-area="" asp-controller="Report" asp-action="Details">View Report</a></h1>
+
+<h1 class="text-center">View Reports</h1>
+
+<div style="align-content: center;">
+    <div>
+        <hr />
+        <div class="row">
+            <div class="col-sm-2">
+                <p>Report Id</p>
+            </div>
+            <div class="col-sm-2">
+                <p>Contract Id</p>
+            </div>
+            <div class="col-sm-2">
+                <p>Date Submitted</p>
+            </div>
+            <div class="col-sm-2">
+                <p>Approved</p>
+            </div>
+            <div class="col-sm-2">
+                <p>Approving Admin</p>
+            </div>
+            <div class="col-sm-2">
+                <p>Date Approved</p>
+            </div>
+        </div>
+        <hr class="w-100" />
+        @foreach (var report in Model.Reports)
+        {
+            <div class="row">
+                <div class="col-sm-2">
+                    <a asp-area="" asp-controller="Report" asp-action="Details" asp-route-id="@report.ReportId">@report.ReportId</a>
+                </div>
+                <div class="col-sm-2">
+                    @report.ContractId
+                </div>
+                <div class="col-sm-2">
+                    @report.SubmitDate
+                </div>
+                <div class="col-sm-2">
+                    @report.Approved
+                </div>
+                <div class="col-sm-2">
+                    @report.AdminId
+                </div>
+                <div class="col-sm-2">
+                    @report.Approved
+                </div>
+
+            </div>
+        }
+
+    </div>
+</div>
+<div>
+    <!--<a asp-action="Edit" asp-route-id="Model.">Edit</a>-->
+    <a asp-action="Index">Back to List</a>
 </div>
