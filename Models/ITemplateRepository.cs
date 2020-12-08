@@ -5,10 +5,12 @@ using System.Threading.Tasks;
 
 namespace SurplusDeficitAutomationSystem.Models
 {
-    interface ITemplateRepository
+    public interface ITemplateRepository
     {
-        Template GetTemplate(int ReportId);
+        Template GetTemplate(int TemplateId);
         IEnumerable<Template> GetAllTemplates();
-        Report Add(Report report);
+        Template Add(Template template);
+        Template Update(Template templateChanges);
+        Template Delete(int id);
     }
 }

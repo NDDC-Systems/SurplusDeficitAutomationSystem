@@ -19,18 +19,22 @@ namespace SurplusDeficitAutomationSystem.Controllers
         }
         public ViewResult Index()
         {
-            var model = _reportRepository.GetAllReports();
-            return View(model);
+            ViewModel myModel = new ViewModel();
+            myModel.Reports = _reportRepository.GetAllReports();
+            return View(myModel);
+            //var model = _reportRepository.GetAllReports();
+            //return View(model);
         }
 
-        public ViewResult Details()
+        [Route("Report/Details/{id?}")]
+        public ViewResult Details(int? id)
         {
-            ReportDetailsViewModel reportDetailsViewModel = new ReportDetailsViewModel()
+            ViewModel myModel = new ViewModel()
             {
-                Report = _reportRepository.GetReport(1),
+                Report = _reportRepository.GetReport(id??1),
                 PageTitle = "Report Details"
             };
-            return View(reportDetailsViewModel);
+            return View(myModel);
         }
 
         [HttpGet]

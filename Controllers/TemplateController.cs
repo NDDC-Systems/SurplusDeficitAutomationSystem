@@ -1,4 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SurplusDeficitAutomationSystem.Models;
+using SurplusDeficitAutomationSystem.ViewModels;
+using SurplusDeficitAutomationSystem.Areas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +11,15 @@ namespace SurplusDeficitAutomationSystem.Controllers
 {
     public class TemplateController : Controller
     {
-        public IActionResult Index()
+        private readonly ITemplateRepository _templateRepository;
+        public TemplateController(ITemplateRepository templateRepository)
         {
-            return View();
+            _templateRepository = templateRepository;
+        }
+        public ViewResult Index()
+        {
+            var model = _templateRepository.GetAllTemplates();
+            return View(model);
         }
     }
 }
