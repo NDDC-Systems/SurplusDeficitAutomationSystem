@@ -22,12 +22,12 @@ namespace SurplusDeficitAutomationSystem.ViewModels
         public IEnumerable<User> Users { get; set; }
         public Field Field { get; set; }
         public IEnumerable<Field> Fields { get; set; }
-        public TemplateFields TemplateFields { get; set; }
-        public IEnumerable<TemplateFields> TemplateField { get; set; }
-        public Values Values { get; set; }
-        public IEnumerable<Values> Value { get; set; }
-        public ReportFieldValues ReportFieldValues { get; set; }
-        public IEnumerable<ReportFieldValues> ReportValues { get; set; }
+        public TemplateFields TemplateField { get; set; }
+        public IEnumerable<TemplateFields> TemplateFields { get; set; }
+        public Value Value { get; set; }
+        public IEnumerable<Value> Values { get; set; }
+        public ReportFieldValues ReportFieldValue { get; set; }
+        public IEnumerable<ReportFieldValues> ReportFieldValues { get; set; }
         public string PageTitle { get; set; }
     }
 }

@@ -29,6 +29,9 @@
             <div class="col-sm-2">
                 <p>Date Approved</p>
             </div>
+            <!--<div class="col-sm-2">
+                <p>Template Type</p>
+            </div>-->
         </div>
         <hr class="w-100" />
         @foreach (var report in Model.Reports)
@@ -50,10 +53,13 @@
                     @report.AdminId
                 </div>
                 <div class="col-sm-2">
-                    @report.Approved
+                    @report.ApprovedDate
                 </div>
-
+                <!--<div class="col-sm-2">
+                    report.TemplateId
+                </div>-->
             </div>
+            
         }
 
     </div>
