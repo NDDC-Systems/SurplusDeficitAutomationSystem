@@ -29,33 +29,36 @@
             <div class="col-sm-2">
                 <p>Date Approved</p>
             </div>
+            <!--<div class="col-sm-2">
+                <p>Template Type</p>
+            </div>-->
         </div>
         <hr class="w-100" />
         @foreach (var report in Model.Reports)
         {
-            foreach(var admin in Model.Admins.Where(admin => admin.AdminId == report.AdminId))
-            {
-                <div class="row">
-                    <div class="col-sm-2">
-                        <a asp-area="" asp-controller="Report" asp-action="Details" asp-route-id="@report.ReportId">@report.ReportId</a>
-                    </div>
-                    <div class="col-sm-2">
-                        @report.ContractId
-                    </div>
-                    <div class="col-sm-2">
-                        @report.SubmitDate
-                    </div>
-                    <div class="col-sm-2">
-                        @report.Approved
-                    </div>
-                    <div class="col-sm-2">
-                        @admin.FirstName
-                    </div>
-                    <div class="col-sm-2">
-                        @report.Approved
-                    </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <a asp-area="" asp-controller="Report" asp-action="Details" asp-route-id="@report.ReportId">@report.ReportId</a>
                 </div>
-            }
+                <div class="col-sm-2">
+                    @report.ContractId
+                </div>
+                <div class="col-sm-2">
+                    @report.SubmitDate
+                </div>
+                <div class="col-sm-2">
+                    @report.Approved
+                </div>
+                <div class="col-sm-2">
+                    @report.AdminId
+                </div>
+                <div class="col-sm-2">
+                    @report.ApprovedDate
+                </div>
+                <!--<div class="col-sm-2">
+                    report.TemplateId
+                </div>-->
+            </div>
             
         }
 

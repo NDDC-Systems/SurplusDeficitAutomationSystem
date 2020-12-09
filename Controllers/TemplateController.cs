@@ -21,5 +21,22 @@ namespace SurplusDeficitAutomationSystem.Controllers
             var model = _templateRepository.GetAllTemplates();
             return View(model);
         }
+
+        [HttpGet]
+        public ViewResult NewTemplate()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult NewTemplate(Template template)
+        {
+            if (ModelState.IsValid)
+            {
+                Template newTemplate = _templateRepository.Add(template);
+            }
+
+            return View();
+        }
     }
 }
