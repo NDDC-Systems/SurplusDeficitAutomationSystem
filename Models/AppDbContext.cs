@@ -20,7 +20,7 @@ namespace SurplusDeficitAutomationSystem.Models
         public DbSet<Provider> Providers { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Field> Fields { get; set; }
-        public DbSet<Values> Values { get; set; }
+        public DbSet<Value> Values { get; set; }
         public DbSet<TemplateFields> TemplateFields { get; set; }
         public DbSet<Contract> Contracts { get; set; }
         public DbSet<ReportFieldValues> ReportFieldValues { get; set; }

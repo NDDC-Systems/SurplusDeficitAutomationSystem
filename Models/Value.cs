@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SurplusDeficitAutomationSystem.Models
 {
-    public class Values
+    public class Value
     {
         public int ValueId { get; set; }
         public int IntValue { get; set; }
