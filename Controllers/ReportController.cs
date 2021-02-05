@@ -31,11 +31,11 @@ namespace SurplusDeficitAutomationSystem.Controllers
         }
 
         [Route("Details/{id?}")]
-        public ViewResult Details(int? id)
+        public ViewResult Details(int id)
         {
             ViewModel myModel = new ViewModel()
             {
-                Report = _reportRepository.GetReport(id??1),
+                Report = _reportRepository.GetReport(id),
                 PageTitle = "Report Details"
             };
             return View(myModel);
