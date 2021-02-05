@@ -53,6 +53,20 @@ namespace SurplusDeficitAutomationSystem.Controllers
             if (ModelState.IsValid)
             {
                 Report newReport = _reportRepository.Add(report);
+                newReport.ReportId = report.ReportId;
+                newReport.TemplateId = report.TemplateId;
+                newReport.ContractId = report.ContractId;
+                newReport.AdminId = report.AdminId;
+                newReport.SubmitDate = report.SubmitDate;
+                newReport.Approved = report.Approved;
+                newReport.ApprovedDate = report.ApprovedDate;
+
+                _reportRepository.Add(newReport);
+
+                int LatestReportID = newReport.ReportId;
+
+                
+
             }
             
             return View();
