@@ -1,5 +1,4 @@
-﻿@model SurplusDeficitAutomationSystem.Models.Report
-
+﻿@model SurplusDeficitAutomationSystem.ViewModels.ViewModel
 @{
     ViewData["Title"] = "New Report";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -13,37 +12,32 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="NewReport">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="ContractId" class="control-label"></label>
-                <input asp-for="ContractId" class="form-control" />
-                <span asp-validation-for="ContractId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SubmitDate" class="control-label"></label>
-                <input asp-for="SubmitDate" class="form-control" />
-                <span asp-validation-for="SubmitDate" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Approved" /> @Html.DisplayNameFor(model => model.Approved)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="AdminId" class="control-label"></label>
-                <input asp-for="AdminId" class="form-control" />
-                <span asp-validation-for="AdminId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ApprovedDate" class="control-label"></label>
-                <input asp-for="ApprovedDate" class="form-control" />
-                <span asp-validation-for="ApprovedDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+        @using (Html.BeginForm("Index", "Report", FormMethod.Post))
+        {
+
+            @Html.TextBoxFor(model => model.Admin.AdminId, new { @class = "form-control", @placeholder = "AdminID" })
+            @Html.ValidationMessageFor(model => model.Admin.AdminId, "", new { @class = "error" })
+
+            @Html.TextBoxFor(model => model.Report.ReportId, new { @class = "form-control", @placeholder = "ReportID" })
+            @Html.ValidationMessageFor(model => model.Report.ReportId, "", new { @class = "error" })
+
+            @Html.TextBoxFor(model => model.Provider.ProviderId, new { @class = "form-control", @placeholder = "ProviderID" })
+            @Html.ValidationMessageFor(model => model.Provider.ProviderId, "", new { @class = "error" })
+
+            @Html.TextBoxFor(model => model.User.Username, new { @class = "form-control", @placeholder = "Username" })
+            @Html.ValidationMessageFor(model => model.User.Username, "", new { @class = "error" })
+
+            @Html.TextBoxFor(model => model.Provider.CompanyName, new { @class = "form-control", @placeholder = "Company Name" })
+            @Html.ValidationMessageFor(model => model.Provider.CompanyName, "", new { @class = "error" })
+
+
+            
+
+            <input type="submit" value="Submit" class="btn btn-block btn-primary" />
+
+        }
+
+        
     </div>
 </div>
 

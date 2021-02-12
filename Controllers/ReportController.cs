@@ -50,26 +50,17 @@ namespace SurplusDeficitAutomationSystem.Controllers
         [HttpPost]
         public IActionResult NewReport(Report report)
         {
+            ViewModel myModel = new ViewModel();
+            myModel.Reports = _reportRepository.GetAllReports();
+
+
             if (ModelState.IsValid)
             {
                 Report newReport = _reportRepository.Add(report);
-                newReport.ReportId = report.ReportId;
-                newReport.TemplateId = report.TemplateId;
-                newReport.ContractId = report.ContractId;
-                newReport.AdminId = report.AdminId;
-                newReport.SubmitDate = report.SubmitDate;
-                newReport.Approved = report.Approved;
-                newReport.ApprovedDate = report.ApprovedDate;
-
-                _reportRepository.Add(newReport);
-
-                int LatestReportID = newReport.ReportId;
-
-                
 
             }
-            
-            return View();
+            return View(myModel);
+            //return View();
         }
     }
 }

@@ -4,6 +4,22 @@
     ViewData["Title"] = "Report Home";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+<head runat="server">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
+    <script src="jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#datatable').dataTable();
+        });
+    </script>
+</head>
+
 
 <h1 class="text-center">View Reports</h1>
 
@@ -59,10 +75,110 @@
                     report.TemplateId
                 </div>-->
             </div>
-            
+
         }
 
+
     </div>
+    <body style="font-family: Arial">
+        <form id="form1" runat="server">
+            <div style="width: 500px; border: 1px solid black; padding: 5px">
+                <table id="datatable">
+                    <thead>
+                        <tr>
+                            <th>
+                                ContractId
+                            </th>
+                            <th>
+                                SubmitDate
+                            </th>
+                            <th>
+                                AdminId
+                            </th>
+                            <th>
+                                ApprovedDate
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>01/01</td>
+                            <td>2</td>
+                            <td>01/02</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>01/02</td>
+                            <td>2</td>
+                            <td>01/03</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>01/03</td>
+                            <td>3</td>
+                            <td>01/04</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>01/04</td>
+                            <td>1</td>
+                            <td>01/05</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>01/05</td>
+                            <td>10</td>
+                            <td>01/06</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>01/06</td>
+                            <td>1</td>
+                            <td>01/07</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>01/07</td>
+                            <td>10</td>
+                            <td>01/08</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>01/08</td>
+                            <td>7</td>
+                            <td>01/09</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>01/09</td>
+                            <td>5</td>
+                            <td>01/10</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>01/10</td>
+                            <td>7</td>
+                            <td>01/11</td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td>01/11</td>
+                            <td>5</td>
+                            <td>01/12</td>
+                        </tr>
+                        <tr>
+                            <td>12</td>
+                            <td>01/12</td>
+                            <td>1</td>
+                            <td>01/13</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </form>
+    </body>
 </div>
 <div>
     <!--<a asp-action="Edit" asp-route-id="Model.">Edit</a>-->
