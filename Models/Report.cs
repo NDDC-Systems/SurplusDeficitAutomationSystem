@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,8 +16,12 @@ namespace SurplusDeficitAutomationSystem.Models
         public int ContractId { get; set; }
         [ForeignKey("Admin")]
         public int AdminId { get; set; }
+        [Required]
         public DateTime SubmitDate { get; set; }
         public bool Approved { get; set; }
         public DateTime? ApprovedDate { get; set; }
+
+        public virtual Contract Contract { get; set; }
+        //public virtual ICollection<ReportToContract> ReportsToContracts { get; set; }
     }
 }
