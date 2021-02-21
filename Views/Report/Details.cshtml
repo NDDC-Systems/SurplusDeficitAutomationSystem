@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1 class="text-center">Report @Html.DisplayFor(model => model.Report.ReportId) Details</h1>
+<h1 class="text-center">Report @Html.DisplayFor(model => model.ReportId) Details</h1>
 
 <div>
     <div>
@@ -20,26 +20,26 @@
             <div class="col-sm-2">
                 @Html.DisplayNameFor(model => model.ApprovedDate)
             </div>
-            <div class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Contracts.)
-            </div>
+            <!--<div class="col-sm-2">
+                Html.DisplayNameFor(model => model.Contracts.)
+            </div>-->
         </div>
         <hr class="w-100" />
             <div class="row">
                 <div class="col-sm-2">
-                    @Html.DisplayFor(model => model.Report.ContractId)
+                    <!--Html.DisplayFor(model => model)-->
                 </div>
                 <div class="col-sm-2">
-                    @Html.DisplayFor(model => model.Report.SubmitDate)
+                    @Html.DisplayFor(model => model.SubmitDate)
                 </div>
                 <div class="col-sm-2">
-                    @Html.DisplayFor(model => model.Report.Approved)
+                    @Html.DisplayFor(model => model.Approved)
                 </div>
                 <div class="col-sm-2">
-                    @Html.DisplayFor(model => model.Report.AdminId)
+                    <!--Html.DisplayFor(model => model.AdminId)-->
                 </div>
                 <div class="col-sm-2">
-                    @Html.DisplayFor(model => model.Report.ApprovedDate)
+                    @Html.DisplayFor(model => model.ApprovedDate)
                 </div>
             </div>
     </div>
