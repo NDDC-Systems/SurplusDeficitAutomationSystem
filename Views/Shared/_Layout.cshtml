@@ -1,11 +1,15 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ElderSource</title>
     <style>
         @@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
         .nav-item {
             font-family: Garamond;
             font-size: 28px;
@@ -16,26 +20,30 @@
             padding-top: 18px;
             padding-bottom: 18px;
         }
+
         .border.bottom {
             color: #405361;
         }
+
         .wrapper {
             display: flex;
             width: 100%;
             align-items: stretch;
         }
+
         .pb-3 {
             flex-grow: 1;
         }
+
         #sidebar {
             min-width: 250px;
             max-width: 250px;
             min-height: 100vh;
         }
 
-        #sidebar.active {
-            margin-left: -250px;
-        }
+            #sidebar.active {
+                margin-left: -250px;
+            }
 
         body {
             font-family: 'Poppins', sans-serif;
@@ -63,41 +71,42 @@
             transition: all 0.3s;
         }
 
-        #sidebar .sidebar-header {
-            padding: 20px;
-            background: #6d7fcc;
-        }
+            #sidebar .sidebar-header {
+                padding: 20px;
+                background: #6d7fcc;
+            }
 
-        #sidebar ul.components {
-            padding: 20px 0;
-            border-bottom: 1px solid #47748b;
-        }
+            #sidebar ul.components {
+                padding: 20px 0;
+                border-bottom: 1px solid #47748b;
+            }
 
-        #sidebar ul p {
-            color: #fff;
-            padding: 10px;
-        }
+            #sidebar ul p {
+                color: #fff;
+                padding: 10px;
+            }
 
-        #sidebar ul li a {
-            padding: 10px;
-            font-size: 1.1em;
-            display: block;
-        }
-        #sidebar ul li a:hover {
-            color: #7386D5;
-            background: #fff;
-        }
+            #sidebar ul li a {
+                padding: 10px;
+                font-size: 1.1em;
+                display: block;
+            }
 
-        #sidebar ul li.active > a, a[aria-expanded="true"] {
-            color: #fff;
-            background: #6d7fcc;
-        }
+                #sidebar ul li a:hover {
+                    color: #7386D5;
+                    background: #fff;
+                }
+
+            #sidebar ul li.active > a, a[aria-expanded="true"] {
+                color: #fff;
+                background: #6d7fcc;
+            }
+
         ul ul a {
             font-size: 0.9em !important;
             padding-left: 30px !important;
             background: #6d7fcc;
         }
-
     </style>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
@@ -160,9 +169,8 @@
             &copy; 2020 - SurplusDeficitAutomationSystem - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    
+
     @if (IsSectionDefined("Scripts"))
     {
         @RenderSection("Scripts", required: false)
