@@ -19,8 +19,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="ProviderId" class="control-label"></label>
-                <input asp-for="ProviderId" class="form-control" />
-                <span asp-validation-for="ProviderId" class="text-danger"></span>
+                <select asp-for="ProviderId" class ="form-control" asp-items="ViewBag.ProviderId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="Balance" class="control-label"></label>

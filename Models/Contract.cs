@@ -16,7 +16,8 @@ namespace SurplusDeficitAutomationSystem.Models
         public float Balance { get; set; }
 
         public virtual ICollection<Report> Reports { get; set; }
-        //public virtual ICollection<ReportToContract> ReportsToContracts { get; set; }
+        public virtual Provider Provider { get; set; }
+        //public virtual ICollection<ProviderToContract> ProvidersToContracts { get; set; }
 
     }
 }

@@ -16,10 +16,10 @@
                 @Html.DisplayNameFor(model => model.TemplateId)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ProviderId)
+                @Html.DisplayNameFor(model => model.Balance)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Balance)
+                @Html.DisplayNameFor(model => model.Provider)
             </th>
             <th></th>
         </tr>
@@ -31,10 +31,10 @@
                 @Html.DisplayFor(modelItem => item.TemplateId)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ProviderId)
+                @Html.DisplayFor(modelItem => item.Balance)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Balance)
+                @Html.DisplayFor(modelItem => item.Provider.ProviderId)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ContractId">Edit</a> |

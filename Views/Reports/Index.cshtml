@@ -43,7 +43,7 @@
                 @Html.DisplayNameFor(model => model.ApprovedDate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Contract)
+                @Html.DisplayNameFor(model => model.Contract.Balance)
             </th>
             <th></th>
         </tr>
@@ -68,7 +68,7 @@
                     @Html.DisplayFor(modelItem => item.ApprovedDate)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Contract.ContractId)
+                    @Html.DisplayFor(modelItem => item.Contract.Balance)
                 </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.ReportId">Edit</a> |

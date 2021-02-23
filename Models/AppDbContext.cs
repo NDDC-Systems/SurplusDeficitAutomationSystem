@@ -25,6 +25,6 @@ namespace SurplusDeficitAutomationSystem.Models
         public DbSet<TemplateFields> TemplateFields { get; set; }
         public DbSet<Contract> Contracts { get; set; }
         public DbSet<ReportFieldValues> ReportFieldValues { get; set; }
-        public DbSet<ReportToContract> ReportsToContracts { get; set; }
+        public DbSet<ProviderToContract> ProviderToContract { get; set; }
     }
 }

@@ -9,23 +9,22 @@ using SurplusDeficitAutomationSystem.Models;
 
 namespace SurplusDeficitAutomationSystem.Controllers
 {
-    public class ContractsController : Controller
+    public class ProvidersController : Controller
     {
         private readonly AppDbContext _context;
 
-        public ContractsController(AppDbContext context)
+        public ProvidersController(AppDbContext context)
         {
             _context = context;
         }
 
-        // GET: Contracts
+        // GET: Providers
         public async Task<IActionResult> Index()
         {
-            var appDbContext = _context.Contracts.Include(c => c.Provider);
-            return View(await appDbContext.ToListAsync());
+            return View(await _context.Providers.ToListAsync());
         }
 
-        // GET: Contracts/Details/5
+        // GET: Providers/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,42 +32,39 @@ namespace SurplusDeficitAutomationSystem.Controllers
                 return NotFound();
             }
 
-            var contract = await _context.Contracts
-                .Include(c => c.Provider)
-                .FirstOrDefaultAsync(m => m.ContractId == id);
-            if (contract == null)
+            var provider = await _context.Providers
+                .FirstOrDefaultAsync(m => m.ProviderId == id);
+            if (provider == null)
             {
                 return NotFound();
             }
 
-            return View(contract);
+            return View(provider);
         }
 
-        // GET: Contracts/Create
+        // GET: Providers/Create
         public IActionResult Create()
         {
-            ViewData["ProviderId"] = new SelectList(_context.Providers, "ProviderId", "ProviderId");
             return View();
         }
 
-        // POST: Contracts/Create
+        // POST: Providers/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ContractId,TemplateId,ProviderId,Balance")] Contract contract)
+        public async Task<IActionResult> Create([Bind("ProviderId,UserId,CompanyName,Address")] Provider provider)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(contract);
+                _context.Add(provider);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProviderId"] = new SelectList(_context.Providers, "ProviderId", "ProviderId", contract.ProviderId);
-            return View(contract);
+            return View(provider);
         }
 
-        // GET: Contracts/Edit/5
+        // GET: Providers/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -76,23 +72,22 @@ namespace SurplusDeficitAutomationSystem.Controllers
                 return NotFound();
             }
 
-            var contract = await _context.Contracts.FindAsync(id);
-            if (contract == null)
+            var provider = await _context.Providers.FindAsync(id);
+            if (provider == null)
             {
                 return NotFound();
             }
-            ViewData["ProviderId"] = new SelectList(_context.Providers, "ProviderId", "ProviderId", contract.ProviderId);
-            return View(contract);
+            return View(provider);
         }
 
-        // POST: Contracts/Edit/5
+        // POST: Providers/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ContractId,TemplateId,ProviderId,Balance")] Contract contract)
+        public async Task<IActionResult> Edit(int id, [Bind("ProviderId,UserId,CompanyName,Address")] Provider provider)
         {
-            if (id != contract.ContractId)
+            if (id != provider.ProviderId)
             {
                 return NotFound();
             }
@@ -101,12 +96,12 @@ namespace SurplusDeficitAutomationSystem.Controllers
             {
                 try
                 {
-                    _context.Update(contract);
+                    _context.Update(provider);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ContractExists(contract.ContractId))
+                    if (!ProviderExists(provider.ProviderId))
                     {
                         return NotFound();
                     }
@@ -117,11 +112,10 @@ namespace SurplusDeficitAutomationSystem.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProviderId"] = new SelectList(_context.Providers, "ProviderId", "ProviderId", contract.ProviderId);
-            return View(contract);
+            return View(provider);
         }
 
-        // GET: Contracts/Delete/5
+        // GET: Providers/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -129,31 +123,30 @@ namespace SurplusDeficitAutomationSystem.Controllers
                 return NotFound();
             }
 
-            var contract = await _context.Contracts
-                .Include(c => c.Provider)
-                .FirstOrDefaultAsync(m => m.ContractId == id);
-            if (contract == null)
+            var provider = await _context.Providers
+                .FirstOrDefaultAsync(m => m.ProviderId == id);
+            if (provider == null)
             {
                 return NotFound();
             }
 
-            return View(contract);
+            return View(provider);
         }
 
-        // POST: Contracts/Delete/5
+        // POST: Providers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var contract = await _context.Contracts.FindAsync(id);
-            _context.Contracts.Remove(contract);
+            var provider = await _context.Providers.FindAsync(id);
+            _context.Providers.Remove(provider);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ContractExists(int id)
+        private bool ProviderExists(int id)
         {
-            return _context.Contracts.Any(e => e.ContractId == id);
+            return _context.Providers.Any(e => e.ProviderId == id);
         }
     }
 }
