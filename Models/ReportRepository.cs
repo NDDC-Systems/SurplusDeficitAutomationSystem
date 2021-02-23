@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace SurplusDeficitAutomationSystem.Models
 {
-    public class SQLReportRepository : IReportRepository
+    public class ReportRepository : IReportRepository
     {
         private readonly AppDbContext context;
          
-        public SQLReportRepository(AppDbContext context)
+        public ReportRepository(AppDbContext context)
         {
             this.context = context;
         }

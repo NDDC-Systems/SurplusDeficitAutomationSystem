@@ -12,7 +12,7 @@ namespace SurplusDeficitAutomationSystem.Models
         [ForeignKey("Template")]
         public int TemplateId { get; set; }
         [ForeignKey("Provider")]
-        public int ProviderId { get; set; }
+        public int? ProviderId { get; set; }
         public float Balance { get; set; }
 
         public virtual ICollection<Report> Reports { get; set; }

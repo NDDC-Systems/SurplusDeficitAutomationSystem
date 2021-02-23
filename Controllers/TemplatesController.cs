@@ -9,22 +9,22 @@ using SurplusDeficitAutomationSystem.Models;
 
 namespace SurplusDeficitAutomationSystem.Controllers
 {
-    public class ProvidersController : Controller
+    public class TemplatesController : Controller
     {
         private readonly AppDbContext _context;
 
-        public ProvidersController(AppDbContext context)
+        public TemplatesController(AppDbContext context)
         {
             _context = context;
         }
 
-        // GET: Providers
+        // GET: Templates
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Providers.ToListAsync());
+            return View(await _context.Templates.ToListAsync());
         }
 
-        // GET: Providers/Details/5
+        // GET: Templates/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -32,39 +32,39 @@ namespace SurplusDeficitAutomationSystem.Controllers
                 return NotFound();
             }
 
-            var provider = await _context.Providers
-                .FirstOrDefaultAsync(m => m.ProviderId == id);
-            if (provider == null)
+            var template = await _context.Templates
+                .FirstOrDefaultAsync(m => m.TemplateId == id);
+            if (template == null)
             {
                 return NotFound();
             }
 
-            return View(provider);
+            return View(template);
         }
 
-        // GET: Providers/Create
+        // GET: Templates/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Providers/Create
+        // POST: Templates/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProviderId,CompanyName,Address")] Provider provider)
+        public async Task<IActionResult> Create([Bind("TemplateId,TemplateName")] Template template)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(provider);
+                _context.Add(template);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(provider);
+            return View(template);
         }
 
-        // GET: Providers/Edit/5
+        // GET: Templates/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -72,22 +72,22 @@ namespace SurplusDeficitAutomationSystem.Controllers
                 return NotFound();
             }
 
-            var provider = await _context.Providers.FindAsync(id);
-            if (provider == null)
+            var template = await _context.Templates.FindAsync(id);
+            if (template == null)
             {
                 return NotFound();
             }
-            return View(provider);
+            return View(template);
         }
 
-        // POST: Providers/Edit/5
+        // POST: Templates/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ProviderId,CompanyName,Address")] Provider provider)
+        public async Task<IActionResult> Edit(int id, [Bind("TemplateId,TemplateName")] Template template)
         {
-            if (id != provider.ProviderId)
+            if (id != template.TemplateId)
             {
                 return NotFound();
             }
@@ -96,12 +96,12 @@ namespace SurplusDeficitAutomationSystem.Controllers
             {
                 try
                 {
-                    _context.Update(provider);
+                    _context.Update(template);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ProviderExists(provider.ProviderId))
+                    if (!TemplateExists(template.TemplateId))
                     {
                         return NotFound();
                     }
@@ -112,10 +112,10 @@ namespace SurplusDeficitAutomationSystem.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(provider);
+            return View(template);
         }
 
-        // GET: Providers/Delete/5
+        // GET: Templates/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -123,30 +123,30 @@ namespace SurplusDeficitAutomationSystem.Controllers
                 return NotFound();
             }
 
-            var provider = await _context.Providers
-                .FirstOrDefaultAsync(m => m.ProviderId == id);
-            if (provider == null)
+            var template = await _context.Templates
+                .FirstOrDefaultAsync(m => m.TemplateId == id);
+            if (template == null)
             {
                 return NotFound();
             }
 
-            return View(provider);
+            return View(template);
         }
 
-        // POST: Providers/Delete/5
+        // POST: Templates/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var provider = await _context.Providers.FindAsync(id);
-            _context.Providers.Remove(provider);
+            var template = await _context.Templates.FindAsync(id);
+            _context.Templates.Remove(template);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ProviderExists(int id)
+        private bool TemplateExists(int id)
         {
-            return _context.Providers.Any(e => e.ProviderId == id);
+            return _context.Templates.Any(e => e.TemplateId == id);
         }
     }
 }

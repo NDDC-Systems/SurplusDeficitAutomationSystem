@@ -9,8 +9,6 @@ namespace SurplusDeficitAutomationSystem.Models
     public class Provider
     {
         public int ProviderId { get; set; }
-        [ForeignKey("User")]
-        public int UserId { get; set; }
         public string CompanyName { get; set; }
         public string Address { get; set; }
 
