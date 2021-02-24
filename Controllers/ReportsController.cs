@@ -21,7 +21,7 @@ namespace SurplusDeficitAutomationSystem.Controllers
         // GET: Reports
         public async Task<IActionResult> Index()
         {
-            var appDbContext = _context.Reports.Include(r => r.Contract);
+            var appDbContext = _context.Reports.Include(r => r.Admin).Include(r => r.Contract).Include(r => r.Template);
             return View(await appDbContext.ToListAsync());
         }
 
@@ -34,7 +34,9 @@ namespace SurplusDeficitAutomationSystem.Controllers
             }
 
             var report = await _context.Reports
+                .Include(r => r.Admin)
                 .Include(r => r.Contract)
+                .Include(r => r.Template)
                 .FirstOrDefaultAsync(m => m.ReportId == id);
             if (report == null)
             {
@@ -47,7 +49,9 @@ namespace SurplusDeficitAutomationSystem.Controllers
         // GET: Reports/Create
         public IActionResult Create()
         {
+            ViewData["AdminId"] = new SelectList(_context.Admins, "AdminId", "AdminId");
             ViewData["ContractId"] = new SelectList(_context.Contracts, "ContractId", "ContractId");
+            ViewData["TemplateId"] = new SelectList(_context.Templates, "TemplateId", "TemplateId");
             return View();
         }
 
@@ -64,7 +68,9 @@ namespace SurplusDeficitAutomationSystem.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["AdminId"] = new SelectList(_context.Admins, "AdminId", "AdminId", report.AdminId);
             ViewData["ContractId"] = new SelectList(_context.Contracts, "ContractId", "ContractId", report.ContractId);
+            ViewData["TemplateId"] = new SelectList(_context.Templates, "TemplateId", "TemplateId", report.TemplateId);
             return View(report);
         }
 
@@ -81,7 +87,9 @@ namespace SurplusDeficitAutomationSystem.Controllers
             {
                 return NotFound();
             }
+            ViewData["AdminId"] = new SelectList(_context.Admins, "AdminId", "AdminId", report.AdminId);
             ViewData["ContractId"] = new SelectList(_context.Contracts, "ContractId", "ContractId", report.ContractId);
+            ViewData["TemplateId"] = new SelectList(_context.Templates, "TemplateId", "TemplateId", report.TemplateId);
             return View(report);
         }
 
@@ -117,7 +125,9 @@ namespace SurplusDeficitAutomationSystem.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["AdminId"] = new SelectList(_context.Admins, "AdminId", "AdminId", report.AdminId);
             ViewData["ContractId"] = new SelectList(_context.Contracts, "ContractId", "ContractId", report.ContractId);
+            ViewData["TemplateId"] = new SelectList(_context.Templates, "TemplateId", "TemplateId", report.TemplateId);
             return View(report);
         }
 
@@ -130,7 +140,9 @@ namespace SurplusDeficitAutomationSystem.Controllers
             }
 
             var report = await _context.Reports
+                .Include(r => r.Admin)
                 .Include(r => r.Contract)
+                .Include(r => r.Template)
                 .FirstOrDefaultAsync(m => m.ReportId == id);
             if (report == null)
             {

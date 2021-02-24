@@ -21,5 +21,7 @@ namespace SurplusDeficitAutomationSystem.Models
         public bool Approved { get; set; }
         public DateTime? ApprovedDate { get; set; }
         public virtual Contract Contract { get; set; }
+        public virtual Template Template { get; set; }
+        public virtual Admin Admin { get; set; }
     }
 }

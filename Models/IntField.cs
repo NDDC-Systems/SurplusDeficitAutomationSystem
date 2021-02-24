@@ -9,9 +9,10 @@ namespace SurplusDeficitAutomationSystem.Models
     public class IntField
     {
         public int IntFieldId { get; set; }
-        [ForeignKey("Template")]
-        public int TemplateId { get; set; }
-        public string FieldName { get; set; }
+        [ForeignKey("Field")]
+        public int FieldId { get; set; }
         public int IntValue { get; set; }
+
+        public virtual Field Field { get; set; }
     }
 }

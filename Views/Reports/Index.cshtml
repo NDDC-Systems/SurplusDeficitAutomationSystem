@@ -13,9 +13,6 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.AdminId)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.SubmitDate)
             </th>
             <th>
@@ -27,15 +24,18 @@
             <th>
                 @Html.DisplayNameFor(model => model.Contract)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Template)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Admin)
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.AdminId)
-            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.SubmitDate)
             </td>
@@ -46,8 +46,13 @@
                 @Html.DisplayFor(modelItem => item.ApprovedDate)
             </td>
             <td>
-                <a asp-area="" asp-controller="Contracts" asp-action="Details" asp-route-id="@item.Contract.ContractId">View</a>
-                <!--Html.DisplayFor(modelItem => item.Contract.ContractId)-->
+                @Html.DisplayFor(modelItem => item.Contract.ContractId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Template.TemplateId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Admin.AdminId)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ReportId">Edit</a> |
