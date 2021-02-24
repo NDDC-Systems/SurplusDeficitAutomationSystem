@@ -5,11 +5,10 @@ using System.Threading.Tasks;
 
 namespace SurplusDeficitAutomationSystem.Models
 {
-    public class Template
+    public class TemplateViewModel
     {
         public int TemplateId { get; set; }
         public string TemplateName { get; set; }
-        public virtual ICollection<Report> Reports { get; set; }
-        public virtual ICollection<TemplateToField> TemplatesToFields { get; set; }
+        public List<FieldViewModel> Fields { get; set; }
     }
 }
