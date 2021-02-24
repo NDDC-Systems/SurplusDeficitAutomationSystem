@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SurplusDeficitAutomationSystem.Models;
 
 namespace SurplusDeficitAutomationSystem.Migrations.AppDb
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210223232020_doublejump")]
+    partial class doublejump
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -347,7 +349,7 @@ namespace SurplusDeficitAutomationSystem.Migrations.AppDb
                         .WithMany("Reports")
                         .HasForeignKey("ProviderId");
 
-                    b.HasOne("SurplusDeficitAutomationSystem.Models.Template", null)
+                    b.HasOne("SurplusDeficitAutomationSystem.Models.Template", "Template")
                         .WithMany("Reports")
                         .HasForeignKey("TemplateId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -356,6 +358,8 @@ namespace SurplusDeficitAutomationSystem.Migrations.AppDb
                     b.Navigation("Contract");
 
                     b.Navigation("Provider");
+
+                    b.Navigation("Template");
                 });
 
             modelBuilder.Entity("SurplusDeficitAutomationSystem.Models.Contract", b =>
