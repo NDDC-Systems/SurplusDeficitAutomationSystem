@@ -29,10 +29,10 @@ namespace SurplusDeficitAutomationSystem
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDatabaseDeveloperPageExceptionFilter();
             services.AddDbContextPool<AppDbContext>(
                 options => options.UseSqlServer(_config.GetConnectionString("SurplusDeficitDb")));
             services.AddMvc().AddXmlDataContractSerializerFormatters();
-            services.AddTransient<IReportRepository, SQLReportRepository>();
             services.AddTransient<ITemplateRepository, TemplateRepository>();
             services.AddControllersWithViews();
             services.AddRazorPages();
@@ -45,7 +45,7 @@ namespace SurplusDeficitAutomationSystem
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseDatabaseErrorPage();
+                app.UseMigrationsEndPoint();
             }
             else
             {

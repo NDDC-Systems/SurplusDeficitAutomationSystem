@@ -1,24 +1,28 @@
 ﻿@model SurplusDeficitAutomationSystem.Models.Report
 
 @{
-    ViewData["Title"] = "New Report";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Create";
 }
 
-<h1>@ViewData["Title"]</h1>
-<h4></h4>
-<div>
-    <p></p>
-</div>
+<h1>Create</h1>
+
+<h4>Report</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="NewReport">
+        <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
+                <label asp-for="TemplateId" class="control-label"></label>
+                <select asp-for="TemplateId" class ="form-control" asp-items="ViewBag.TemplateId"></select>
+            </div>
+            <div class="form-group">
                 <label asp-for="ContractId" class="control-label"></label>
-                <input asp-for="ContractId" class="form-control" />
-                <span asp-validation-for="ContractId" class="text-danger"></span>
+                <select asp-for="ContractId" class ="form-control" asp-items="ViewBag.ContractId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="AdminId" class="control-label"></label>
+                <select asp-for="AdminId" class ="form-control" asp-items="ViewBag.AdminId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="SubmitDate" class="control-label"></label>
@@ -29,11 +33,6 @@
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="Approved" /> @Html.DisplayNameFor(model => model.Approved)
                 </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="AdminId" class="control-label"></label>
-                <input asp-for="AdminId" class="form-control" />
-                <span asp-validation-for="AdminId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="ApprovedDate" class="control-label"></label>

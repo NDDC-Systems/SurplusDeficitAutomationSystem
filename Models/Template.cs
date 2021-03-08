@@ -9,5 +9,7 @@ namespace SurplusDeficitAutomationSystem.Models
     {
         public int TemplateId { get; set; }
         public string TemplateName { get; set; }
+        public virtual ICollection<Report> Reports { get; set; }
+        public virtual ICollection<TemplateToField> TemplatesToFields { get; set; }
     }
 }

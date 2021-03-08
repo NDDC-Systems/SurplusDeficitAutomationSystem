@@ -15,8 +15,8 @@ namespace SurplusDeficitAutomationSystem.Migrations.AppDb
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.9")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
+                .HasAnnotation("ProductVersion", "5.0.3")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("SurplusDeficitAutomationSystem.Models.Admin", b =>
@@ -43,6 +43,26 @@ namespace SurplusDeficitAutomationSystem.Migrations.AppDb
                     b.ToTable("Admins");
                 });
 
+            modelBuilder.Entity("SurplusDeficitAutomationSystem.Models.BooleanField", b =>
+                {
+                    b.Property<int>("BooleanFieldId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("BooleanValue")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("FieldId")
+                        .HasColumnType("int");
+
+                    b.HasKey("BooleanFieldId");
+
+                    b.HasIndex("FieldId");
+
+                    b.ToTable("BooleanFields");
+                });
+
             modelBuilder.Entity("SurplusDeficitAutomationSystem.Models.Contract", b =>
                 {
                     b.Property<int>("ContractId")
@@ -53,7 +73,7 @@ namespace SurplusDeficitAutomationSystem.Migrations.AppDb
                     b.Property<float>("Balance")
                         .HasColumnType("real");
 
-                    b.Property<int>("ProviderId")
+                    b.Property<int?>("ProviderId")
                         .HasColumnType("int");
 
                     b.Property<int>("TemplateId")
@@ -61,7 +81,29 @@ namespace SurplusDeficitAutomationSystem.Migrations.AppDb
 
                     b.HasKey("ContractId");
 
+                    b.HasIndex("ProviderId");
+
                     b.ToTable("Contracts");
+                });
+
+            modelBuilder.Entity("SurplusDeficitAutomationSystem.Models.DateTimeField", b =>
+                {
+                    b.Property<int>("DateTimeFieldId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("DateTimeValue")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("FieldId")
+                        .HasColumnType("int");
+
+                    b.HasKey("DateTimeFieldId");
+
+                    b.HasIndex("FieldId");
+
+                    b.ToTable("DateTimeFields");
                 });
 
             modelBuilder.Entity("SurplusDeficitAutomationSystem.Models.Field", b =>
@@ -71,15 +113,52 @@ namespace SurplusDeficitAutomationSystem.Migrations.AppDb
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("DataType")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("FieldName")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("FieldId");
 
                     b.ToTable("Fields");
+                });
+
+            modelBuilder.Entity("SurplusDeficitAutomationSystem.Models.FloatField", b =>
+                {
+                    b.Property<int>("FloatFieldId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("FieldId")
+                        .HasColumnType("int");
+
+                    b.Property<float>("FloatValue")
+                        .HasColumnType("real");
+
+                    b.HasKey("FloatFieldId");
+
+                    b.HasIndex("FieldId");
+
+                    b.ToTable("FloatFields");
+                });
+
+            modelBuilder.Entity("SurplusDeficitAutomationSystem.Models.IntField", b =>
+                {
+                    b.Property<int>("IntFieldId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("FieldId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IntValue")
+                        .HasColumnType("int");
+
+                    b.HasKey("IntFieldId");
+
+                    b.HasIndex("FieldId");
+
+                    b.ToTable("IntFields");
                 });
 
             modelBuilder.Entity("SurplusDeficitAutomationSystem.Models.Provider", b =>
@@ -95,12 +174,31 @@ namespace SurplusDeficitAutomationSystem.Migrations.AppDb
                     b.Property<string>("CompanyName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
                     b.HasKey("ProviderId");
 
                     b.ToTable("Providers");
+                });
+
+            modelBuilder.Entity("SurplusDeficitAutomationSystem.Models.ProviderToContract", b =>
+                {
+                    b.Property<int>("ProviderToContractId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ContractId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProviderId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ProviderToContractId");
+
+                    b.HasIndex("ContractId");
+
+                    b.HasIndex("ProviderId");
+
+                    b.ToTable("ProviderToContract");
                 });
 
             modelBuilder.Entity("SurplusDeficitAutomationSystem.Models.Report", b =>
@@ -130,6 +228,10 @@ namespace SurplusDeficitAutomationSystem.Migrations.AppDb
 
                     b.HasKey("ReportId");
 
+                    b.HasIndex("ContractId");
+
+                    b.HasIndex("TemplateId");
+
                     b.ToTable("Reports");
                 });
 
@@ -152,6 +254,26 @@ namespace SurplusDeficitAutomationSystem.Migrations.AppDb
                     b.HasKey("Id");
 
                     b.ToTable("ReportFieldValues");
+                });
+
+            modelBuilder.Entity("SurplusDeficitAutomationSystem.Models.StringField", b =>
+                {
+                    b.Property<int>("StringFieldId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("FieldId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("StringValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("StringFieldId");
+
+                    b.HasIndex("FieldId");
+
+                    b.ToTable("StringFields");
                 });
 
             modelBuilder.Entity("SurplusDeficitAutomationSystem.Models.Template", b =>
@@ -185,6 +307,26 @@ namespace SurplusDeficitAutomationSystem.Migrations.AppDb
                     b.HasKey("Id");
 
                     b.ToTable("TemplateFields");
+                });
+
+            modelBuilder.Entity("SurplusDeficitAutomationSystem.Models.TextField", b =>
+                {
+                    b.Property<int>("TextFieldId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("FieldId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TextValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("TextFieldId");
+
+                    b.HasIndex("FieldId");
+
+                    b.ToTable("TextFields");
                 });
 
             modelBuilder.Entity("SurplusDeficitAutomationSystem.Models.User", b =>
@@ -233,6 +375,149 @@ namespace SurplusDeficitAutomationSystem.Migrations.AppDb
                     b.HasKey("ValueId");
 
                     b.ToTable("Values");
+                });
+
+            modelBuilder.Entity("SurplusDeficitAutomationSystem.Models.BooleanField", b =>
+                {
+                    b.HasOne("SurplusDeficitAutomationSystem.Models.Field", "Field")
+                        .WithMany("BooleanFields")
+                        .HasForeignKey("FieldId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Field");
+                });
+
+            modelBuilder.Entity("SurplusDeficitAutomationSystem.Models.Contract", b =>
+                {
+                    b.HasOne("SurplusDeficitAutomationSystem.Models.Provider", "Provider")
+                        .WithMany("Contracts")
+                        .HasForeignKey("ProviderId");
+
+                    b.Navigation("Provider");
+                });
+
+            modelBuilder.Entity("SurplusDeficitAutomationSystem.Models.DateTimeField", b =>
+                {
+                    b.HasOne("SurplusDeficitAutomationSystem.Models.Field", "Field")
+                        .WithMany("DateTimeFields")
+                        .HasForeignKey("FieldId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Field");
+                });
+
+            modelBuilder.Entity("SurplusDeficitAutomationSystem.Models.FloatField", b =>
+                {
+                    b.HasOne("SurplusDeficitAutomationSystem.Models.Field", "Field")
+                        .WithMany("FloatFields")
+                        .HasForeignKey("FieldId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Field");
+                });
+
+            modelBuilder.Entity("SurplusDeficitAutomationSystem.Models.IntField", b =>
+                {
+                    b.HasOne("SurplusDeficitAutomationSystem.Models.Field", "Field")
+                        .WithMany("IntFields")
+                        .HasForeignKey("FieldId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Field");
+                });
+
+            modelBuilder.Entity("SurplusDeficitAutomationSystem.Models.ProviderToContract", b =>
+                {
+                    b.HasOne("SurplusDeficitAutomationSystem.Models.Contract", "Contract")
+                        .WithMany()
+                        .HasForeignKey("ContractId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SurplusDeficitAutomationSystem.Models.Provider", "Provider")
+                        .WithMany()
+                        .HasForeignKey("ProviderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Contract");
+
+                    b.Navigation("Provider");
+                });
+
+            modelBuilder.Entity("SurplusDeficitAutomationSystem.Models.Report", b =>
+                {
+                    b.HasOne("SurplusDeficitAutomationSystem.Models.Contract", "Contract")
+                        .WithMany("Reports")
+                        .HasForeignKey("ContractId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SurplusDeficitAutomationSystem.Models.Template", "Template")
+                        .WithMany("Reports")
+                        .HasForeignKey("TemplateId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Contract");
+
+                    b.Navigation("Template");
+                });
+
+            modelBuilder.Entity("SurplusDeficitAutomationSystem.Models.StringField", b =>
+                {
+                    b.HasOne("SurplusDeficitAutomationSystem.Models.Field", "Field")
+                        .WithMany("StringFields")
+                        .HasForeignKey("FieldId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Field");
+                });
+
+            modelBuilder.Entity("SurplusDeficitAutomationSystem.Models.TextField", b =>
+                {
+                    b.HasOne("SurplusDeficitAutomationSystem.Models.Field", "Field")
+                        .WithMany("TextFields")
+                        .HasForeignKey("FieldId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Field");
+                });
+
+            modelBuilder.Entity("SurplusDeficitAutomationSystem.Models.Contract", b =>
+                {
+                    b.Navigation("Reports");
+                });
+
+            modelBuilder.Entity("SurplusDeficitAutomationSystem.Models.Field", b =>
+                {
+                    b.Navigation("BooleanFields");
+
+                    b.Navigation("DateTimeFields");
+
+                    b.Navigation("FloatFields");
+
+                    b.Navigation("IntFields");
+
+                    b.Navigation("StringFields");
+
+                    b.Navigation("TextFields");
+                });
+
+            modelBuilder.Entity("SurplusDeficitAutomationSystem.Models.Provider", b =>
+                {
+                    b.Navigation("Contracts");
+                });
+
+            modelBuilder.Entity("SurplusDeficitAutomationSystem.Models.Template", b =>
+                {
+                    b.Navigation("Reports");
                 });
 #pragma warning restore 612, 618
         }
