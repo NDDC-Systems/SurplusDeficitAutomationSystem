@@ -122,14 +122,6 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <partial name="_LoginPartial" />
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Report" asp-action="Index">Reports</a>
-                        </li>
-                    </ul>
                 </div>
             </div>
         </nav>
@@ -146,13 +138,13 @@
                     <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                 </li>
                 <li>
-                    <a asp-area="" asp-controller="Report" asp-action="Index">View Reports</a>
+                    <a asp-area="" asp-controller="Reports" asp-action="Index">Reports</a>
                 </li>
                 <li>
-                    <a asp-area="" asp-controller="Report" asp-action="NewReport">New Report</a>
+                    <a asp-area="" asp-controller="Contracts" asp-action="Index">Contracts</a>
                 </li>
                 <li>
-                    <a asp-area="" asp-controller="Template" asp-action="Index">Templates</a>
+                    <a asp-area="" asp-controller="Templates" asp-action="Index">Templates</a>
                 </li>
                 <!--<li>
                     <a asp-area="" asp-controller="TemplateField" asp-action="NewTemplateField">NewTemplateFields</a>

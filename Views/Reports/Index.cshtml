@@ -23,22 +23,19 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.SubmitDate)
+                Submit Date
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Approved)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ApprovedDate)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Contract)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Template)
+                Program
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Admin)
+                Approving Admin
             </th>
             <th></th>
         </tr>
@@ -54,17 +51,14 @@
                     @Html.DisplayFor(modelItem => item.Approved)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.ApprovedDate)
-                </td>
-                <td>
-                    <a asp-area="" asp-controller="Contracts" asp-action="Details" asp-route-id="@item.Contract.ContractId">View</a>
-                    <!--Html.DisplayFor(modelItem => item.Contract.ContractId)-->
+                    <!--<a asp-area="" asp-controller="Contracts" asp-action="Details" asp-route-id="item.Contract.ContractId">View</a>-->
+                    @Html.DisplayFor(modelItem => item.Contract.Provider.CompanyName)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Template.TemplateName)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Admin.AdminId)
+                    @Html.DisplayFor(modelItem => item.Admin.FirstName) @Html.DisplayFor(modelItem => item.Admin.LastName)
                 </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.ReportId">Edit</a> |
