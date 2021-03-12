@@ -56,7 +56,7 @@ namespace SurplusDeficitAutomationSystem.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ContractId,TemplateId,ProviderId,Balance")] Contract contract)
+        public async Task<IActionResult> Create([Bind("ContractId,TemplateId,ProviderId,ContractName,Balance")] Contract contract)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace SurplusDeficitAutomationSystem.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ContractId,TemplateId,ProviderId,Balance")] Contract contract)
+        public async Task<IActionResult> Edit(int id, [Bind("ContractId,TemplateId,ProviderId,ContractName,Balance")] Contract contract)
         {
             if (id != contract.ContractId)
             {

@@ -11,6 +11,7 @@ namespace SurplusDeficitAutomationSystem.Models
         public int ProviderId { get; set; }
         public string CompanyName { get; set; }
         public string Address { get; set; }
+        public string Email { get; set; }
 
         public virtual ICollection<Contract> Contracts { get; set; }
         //public virtual ICollection<ProviderToContract> ProvidersToContracts { get; set; }

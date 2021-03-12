@@ -13,6 +13,7 @@ namespace SurplusDeficitAutomationSystem.Models
         public int TemplateId { get; set; }
         [ForeignKey("Provider")]
         public int? ProviderId { get; set; }
+        public string ContractName { get; set; }
         public float Balance { get; set; }
 
         public virtual ICollection<Report> Reports { get; set; }

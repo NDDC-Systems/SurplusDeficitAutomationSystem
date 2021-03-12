@@ -21,7 +21,7 @@ namespace SurplusDeficitAutomationSystem.Controllers
         // GET: Reports
         public async Task<IActionResult> Index()
         {
-            var appDbContext = _context.Reports.Include(r => r.Admin).Include(r => r.Contract).Include(r => r.Template);
+            var appDbContext = _context.Reports.Include(r => r.Admin).Include(r => r.Contract).Include(r => r.Contract.Provider).Include(r => r.Template);
             return View(await appDbContext.ToListAsync());
         }
 
@@ -50,8 +50,9 @@ namespace SurplusDeficitAutomationSystem.Controllers
         public IActionResult Create()
         {
             ViewData["AdminId"] = new SelectList(_context.Admins, "AdminId", "AdminId");
-            ViewData["ContractId"] = new SelectList(_context.Contracts, "ContractId", "ContractId");
+            ViewData["ContractId"] = new SelectList(_context.Contracts, "ContractId", "ContractName");
             ViewData["TemplateId"] = new SelectList(_context.Templates, "TemplateId", "TemplateId");
+            //ViewData["ContractList"] = new SelectList(_context.Contracts, ""
             return View();
         }
 
