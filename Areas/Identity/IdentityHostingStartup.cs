@@ -20,6 +20,7 @@ namespace SurplusDeficitAutomationSystem.Areas.Identity
                         context.Configuration.GetConnectionString("IdentityDb")));
 
                 services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
+                    .AddRoles<IdentityRole>()
                     .AddEntityFrameworkStores<SurplusDeficitAutomationSystemContext>();
             });
         }
