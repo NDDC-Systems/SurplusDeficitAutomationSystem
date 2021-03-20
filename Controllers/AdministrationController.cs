@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 using SurplusDeficitAutomationSystem.ViewModels;
 using SurplusDeficitAutomationSystem.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EmployeeManagement.Controllers
 {
+    [Authorize (Roles ="Admin")]
     public class AdministrationController : Controller
     {
         private readonly RoleManager<IdentityRole> roleManager;
