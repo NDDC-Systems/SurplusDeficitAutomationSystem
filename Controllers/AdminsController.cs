@@ -6,11 +6,19 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SurplusDeficitAutomationSystem.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace SurplusDeficitAutomationSystem.Controllers
 {
     public class AdminsController : Controller
     {
+        private UserManager<Provider> userManager;
+
+        public AdminsController(UserManager<Provider> usrMgr)
+        {
+            userManager = usrMgr;
+        }
+
         private readonly AppDbContext _context;
 
         public AdminsController(AppDbContext context)
