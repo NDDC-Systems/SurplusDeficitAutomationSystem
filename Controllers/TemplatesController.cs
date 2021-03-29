@@ -59,7 +59,7 @@ namespace SurplusDeficitAutomationSystem.Controllers
             {
                 _context.Add(template);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("index", "fields");
+                return RedirectToAction("Create", "TemplateFields");
             }
             return View(template);
         }
