@@ -49,9 +49,9 @@ namespace SurplusDeficitAutomationSystem.Controllers
         // GET: Reports/Create
         public IActionResult Create()
         {
-            ViewData["AdminId"] = new SelectList(_context.Admins, "AdminId", "AdminId");
+            ViewData["AdminId"] = new SelectList(_context.Admins, "AdminId", "LastName");
             ViewData["ContractId"] = new SelectList(_context.Contracts, "ContractId", "ContractName");
-            ViewData["TemplateId"] = new SelectList(_context.Templates, "TemplateId", "TemplateId");
+            ViewData["TemplateId"] = new SelectList(_context.Templates, "TemplateId", "TemplateName");
             //ViewData["ContractList"] = new SelectList(_context.Contracts, ""
             return View();
         }

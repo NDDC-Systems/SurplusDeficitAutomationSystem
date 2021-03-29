@@ -9,6 +9,7 @@ namespace SurplusDeficitAutomationSystem.Models
     {
         public int FieldId { get; set; }
         public string FieldName { get; set; }
+        public string FieldType { get; set; }
         public virtual ICollection<TemplateToField> TemplatesToFields { get; set; }
         public virtual ICollection<StringField> StringFields { get; set; }
         public virtual ICollection<IntField> IntFields { get; set; }
@@ -16,5 +17,6 @@ namespace SurplusDeficitAutomationSystem.Models
         public virtual ICollection<TextField> TextFields { get; set; }
         public virtual ICollection<DateTimeField> DateTimeFields { get; set; }
         public virtual ICollection<FloatField> FloatFields { get; set; }
+        public virtual ICollection<TemplateFields> TemplateFields { get; set; }
     }
 }
