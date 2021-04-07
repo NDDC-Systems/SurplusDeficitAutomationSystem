@@ -9,7 +9,7 @@ on:
       - Restoration
   workflow_dispatch:
 
-jobs:
+jobs:    
   build:
     runs-on: windows-latest
 
@@ -20,7 +20,10 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: '5.0.x'
-
+        
+    - name: Clean
+      run: dotnet clean ./SurplusDeficitAutomationSystem/SurplusDeficitAutomationSystem.sln --configuration Release && dotnet nuget locals all --clear
+      
     - name: Build with dotnet
       run: dotnet build --configuration Release
 
