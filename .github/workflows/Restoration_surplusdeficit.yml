@@ -22,7 +22,7 @@ jobs:
         dotnet-version: '5.0.x'
         
     - name: Clean
-      run: dotnet clean ./SurplusDeficitAutomationSystem/SurplusDeficitAutomationSystem.sln --configuration Release && dotnet nuget locals all --clear
+      run: dotnet clean ./NDDC-Systems/SurplusDeficitAutomationSystem.sln --configuration Release && dotnet nuget locals all --clear
       
     - name: Build with dotnet
       run: dotnet build --configuration Release
