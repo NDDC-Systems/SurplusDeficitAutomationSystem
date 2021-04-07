@@ -9,7 +9,7 @@ on:
       - Restoration
   workflow_dispatch:
 
-jobs:    
+jobs:
   build:
     runs-on: windows-latest
 
@@ -20,10 +20,7 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: '5.0.x'
-        
-    - name: Clean
-      run: dotnet clean ./SurplusDeficitAutomationSystem/SurplusDeficitAutomationSystem.sln --configuration Release && dotnet nuget locals all --clear
-      
+
     - name: Build with dotnet
       run: dotnet build --configuration Release
 
@@ -55,5 +52,5 @@ jobs:
       with:
         app-name: 'surplusdeficit'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_633ffae4f5f3455a87e7c300affa22ba }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_3888aed13c1b4b589cab930ba40d1d2f }}
         package: .
