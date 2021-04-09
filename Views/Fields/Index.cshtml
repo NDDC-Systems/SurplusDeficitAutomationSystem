@@ -7,16 +7,16 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Add New Field</a>
+    <a asp-action="Create">Create New</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                Name
+                @Html.DisplayNameFor(model => model.FieldName)
             </th>
             <th>
-                Type
+                @Html.DisplayNameFor(model => model.FieldType)
             </th>
             <th></th>
         </tr>
