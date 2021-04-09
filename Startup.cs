@@ -33,7 +33,21 @@ namespace SurplusDeficitAutomationSystem
             services.AddDbContextPool<AppDbContext>(
                 options => options.UseSqlServer(_config.GetConnectionString("SurplusDeficitDb")));
             services.AddMvc().AddXmlDataContractSerializerFormatters();
+            //services.AddTransient<IAdminRepository, AdminRepository>();
+            //services.AddTransient<IBooleanFieldRepository, BooleanFieldRepository>();
+            //services.AddTransient<IContractRepository, ContractRepository>();
+            //services.AddTransient<IDateTimeFieldRepository, DateTimeFieldRepository>();
+            //services.AddTransient<IFieldRepository, FieldRepository>();
+            //services.AddTransient<IFloatFieldRepository, FloatFieldRepository>();
+            //services.AddTransient<IIntFieldRepository, IntFieldRepository>();
+            //services.AddTransient<IProviderRepository, ProviderRepository>();
+            //services.AddTransient<IReportRepository, ReportRepository>();
+            //services.AddTransient<IStringFieldRepository, StringFieldRepository>();
+            services.AddTransient<ITemplateFieldsRepository, TemplateFieldsRepository>();
             services.AddTransient<ITemplateRepository, TemplateRepository>();
+            //services.AddTransient<ITextFieldRepository, TextFieldRepository>();
+            //services.AddTransient<IUserRepository, UserRepository>();
+            //services.AddTransient<IValueRepository, ValueRepository>();
             services.AddControllersWithViews();
             services.AddRazorPages();
             
