@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using SurplusDeficitAutomationSystem.ViewModels;
 using SurplusDeficitAutomationSystem.Models;
 using Microsoft.AspNetCore.Identity;
+using SurplusDeficitAutomationSystem.Services;
 
 namespace EmployeeManagement.Controllers
 {
@@ -14,13 +15,15 @@ namespace EmployeeManagement.Controllers
         private readonly RoleManager<IdentityRole> roleManager;
         private readonly UserManager<IdentityUser> userManager;
         private readonly SignInManager<IdentityUser> signInManager;
+        private IMailService _mailService;
 
         public AdministrationController(RoleManager<IdentityRole> roleManager, UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager)
+            SignInManager<IdentityUser> signInManager, IMailService mailService)
         {
             this.roleManager = roleManager;
             this.userManager = userManager;
             this.signInManager = signInManager;
+            _mailService = mailService;
         }
         [HttpGet]
         public IActionResult CreateUser()
@@ -46,11 +49,13 @@ namespace EmployeeManagement.Controllers
                 // If user is successfully created, sign-in the user using
                 // SignInManager and redirect to index action of HomeController
                 
-                //if (result.Succeeded)
-                //{
+                if (result.Succeeded)
+                {
+                    await _mailService.SendEmailAsync(model.Email, "New User", "<h1>Hello! A new account has been created" +
+                        "with this email for the ElderSource system.</h1><p>A new account has been created at " + DateTime.Now + " for ElderSource.</p>");
                 //    await signInManager.SignInAsync(user, isPersistent: false);
-                //    return RedirectToAction("index", "home");
-                //}
+                    return RedirectToAction("index", "home");
+                }
 
                 // If there are any errors, add them to the ModelState object
                 // which will be displayed by the validation summary tag helper
@@ -132,17 +137,6 @@ namespace EmployeeManagement.Controllers
                     model.Users.Add(user.UserName);
                 }
             }
-            foreach (var user in userManager.Users.ToList())
-            {
-                // If the user is in this role, add the username to
-                // Users property of EditRoleViewModel. This model
-                // object is then passed to the view for display
-                if (await userManager.IsInRoleAsync(user, role1.Name))
-                {
-                    model.Users.Add(user.UserName);
-                }
-            }
-
             return View(model);
         }
 

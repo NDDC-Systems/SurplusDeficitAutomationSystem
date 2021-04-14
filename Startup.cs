@@ -13,6 +13,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Identity;
 using SurplusDeficitAutomationSystem.Data;
 using SurplusDeficitAutomationSystem.Models;
+using SurplusDeficitAutomationSystem.Services;
 
 namespace SurplusDeficitAutomationSystem
 {
@@ -36,7 +37,7 @@ namespace SurplusDeficitAutomationSystem
             services.AddTransient<ITemplateRepository, TemplateRepository>();
             services.AddControllersWithViews();
             services.AddRazorPages();
-            
+            services.AddTransient<IMailService, SendGridMailService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
