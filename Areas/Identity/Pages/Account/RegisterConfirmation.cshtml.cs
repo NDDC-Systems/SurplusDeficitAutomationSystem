@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
+using SurplusDeficitAutomationSystem.Services;
 
 namespace SurplusDeficitAutomationSystem.Areas.Identity.Pages.Account
 {
@@ -13,9 +14,9 @@ namespace SurplusDeficitAutomationSystem.Areas.Identity.Pages.Account
     public class RegisterConfirmationModel : PageModel
     {
         private readonly UserManager<IdentityUser> _userManager;
-        private readonly IEmailSender _sender;
+        private readonly Microsoft.AspNetCore.Identity.UI.Services.IEmailSender _sender;
 
-        public RegisterConfirmationModel(UserManager<IdentityUser> userManager, IEmailSender sender)
+        public RegisterConfirmationModel(UserManager<IdentityUser> userManager, Microsoft.AspNetCore.Identity.UI.Services.IEmailSender sender)
         {
             _userManager = userManager;
             _sender = sender;
@@ -42,7 +43,7 @@ namespace SurplusDeficitAutomationSystem.Areas.Identity.Pages.Account
 
             Email = email;
             // Once you add a real email sender, you should remove this code that lets you confirm the account
-            DisplayConfirmAccountLink = true;
+            DisplayConfirmAccountLink = false;
             if (DisplayConfirmAccountLink)
             {
                 var userId = await _userManager.GetUserIdAsync(user);
