@@ -1,26 +1,24 @@
 ﻿@model SurplusDeficitAutomationSystem.Models.TemplateFields
 
 @{
-    ViewData["Title"] = "NewTemplateField";
+    ViewData["Title"] = "Create";
 }
 
-<h1>NewTemplateField</h1>
+<h1>Create</h1>
 
 <h4>TemplateFields</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="NewTemplateField">
+        <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="TemplateId" class="control-label"></label>
-                <input asp-for="TemplateId" class="form-control" />
-                <span asp-validation-for="TemplateId" class="text-danger"></span>
+                <label asp-for="TemplateId" class="control-label">Template</label>
+                <select asp-for="TemplateId" class ="form-control" asp-items="ViewBag.TemplateId"></select>
             </div>
             <div class="form-group">
-                <label asp-for="FieldId" class="control-label"></label>
-                <input asp-for="FieldId" class="form-control" />
-                <span asp-validation-for="FieldId" class="text-danger"></span>
+                <label asp-for="FieldId" class="control-label">Field</label>
+                <select asp-for="FieldId" class ="form-control" asp-items="ViewBag.FieldId"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

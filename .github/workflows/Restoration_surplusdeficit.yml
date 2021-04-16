@@ -21,6 +21,10 @@ jobs:
       with:
         dotnet-version: '5.0.x'
 
+    - name: Clear Nuget Cache
+      shell: bash
+      run: dotnet nuget locals all --clear
+      
     - name: Build with dotnet
       run: dotnet build --configuration Release
 

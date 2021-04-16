@@ -13,5 +13,8 @@ namespace SurplusDeficitAutomationSystem.Models
         public int TemplateId { get; set; }
         [ForeignKey("Field")]
         public int FieldId { get; set; }
+
+        public virtual Template Template { get; set; }
+        public virtual Field Field { get; set; }
     }
 }
