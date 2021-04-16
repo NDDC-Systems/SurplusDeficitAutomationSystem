@@ -2,7 +2,7 @@
 
 namespace SurplusDeficitAutomationSystem.Migrations
 {
-    public partial class UpdateReport3 : Migration
+    public partial class Fields : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

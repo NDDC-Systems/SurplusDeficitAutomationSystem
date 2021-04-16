@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace SurplusDeficitAutomationSystem.Models
 {
-    public class FieldRepository
+    public class FieldRepository : IFieldRepository
     {
         private readonly AppDbContext context;
 
@@ -31,12 +31,12 @@ namespace SurplusDeficitAutomationSystem.Models
             return field;
         }
 
-        public IEnumerable<Field> GetAllReports()
+        public IEnumerable<Field> GetAllFields()
         {
             return context.Fields;
         }
 
-        public Field GetReport(int FieldId)
+        public Field GetField(int FieldId)
         {
             return context.Fields.Find(FieldId);
         }

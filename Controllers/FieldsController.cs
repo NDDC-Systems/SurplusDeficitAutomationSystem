@@ -53,7 +53,7 @@ namespace SurplusDeficitAutomationSystem.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("FieldId,FieldName")] Field @field)
+        public async Task<IActionResult> Create([Bind("FieldId,FieldName,FieldType")] Field @field)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace SurplusDeficitAutomationSystem.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("FieldId,FieldName")] Field @field)
+        public async Task<IActionResult> Edit(int id, [Bind("FieldId,FieldName,FieldType")] Field @field)
         {
             if (id != @field.FieldId)
             {

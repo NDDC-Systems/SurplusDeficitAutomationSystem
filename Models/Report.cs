@@ -16,7 +16,6 @@ namespace SurplusDeficitAutomationSystem.Models
         public int ContractId { get; set; }
         [ForeignKey("Admin")]
         public int AdminId { get; set; }
-        [Required]
         public DateTime SubmitDate { get; set; }
         public bool Approved { get; set; }
         public DateTime? ApprovedDate { get; set; }
