@@ -12,12 +12,12 @@ namespace SurplusDeficitAutomationSystem.Controllers
 {
     public class AdminsController : Controller
     {
-        private UserManager<Provider> userManager;
+        /*private UserManager<Provider> userManager;
 
         public AdminsController(UserManager<Provider> usrMgr)
         {
             userManager = usrMgr;
-        }
+        }*/
 
         private readonly AppDbContext _context;
 

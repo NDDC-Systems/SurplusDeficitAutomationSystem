@@ -52,8 +52,8 @@
                 </td>-->
                 <td>
                     <!--<a asp-area="" asp-controller="Contracts" asp-action="Details" asp-route-id="item.Contract.ContractId">View</a>-->
-                    @Html.DisplayFor(modelItem => item.Contract.Provider.CompanyName)
-                </td>
+                    <a asp-controller="Contracts" asp-action="Details" asp-route-id="@item.Contract.ContractId">@Html.DisplayFor(modelItem => item.Contract.Provider.CompanyName)</a>
+</td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Template.TemplateName)
                 </td>
