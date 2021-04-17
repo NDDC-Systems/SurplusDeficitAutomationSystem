@@ -9,5 +9,6 @@ namespace SurplusDeficitAutomationSystem.Models
     {
         public int Id { get; set; }
         public string FieldName { get; set; }
+        public string FieldType { get; set; }
     }
 }

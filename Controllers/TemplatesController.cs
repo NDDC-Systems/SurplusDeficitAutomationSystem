@@ -39,7 +39,7 @@ namespace SurplusDeficitAutomationSystem.Controllers
                 return NotFound();
             }
 
-            return View(template);
+            return RedirectToAction("Index", "TemplateFields");
         }
 
         // GET: Templates/Create
@@ -59,7 +59,7 @@ namespace SurplusDeficitAutomationSystem.Controllers
             {
                 _context.Add(template);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Create", "TemplateFields");
             }
             return View(template);
         }
