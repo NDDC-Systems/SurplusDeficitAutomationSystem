@@ -48,8 +48,8 @@ namespace SurplusDeficitAutomationSystem.Controllers
         // GET: TemplateFields/Create
         public IActionResult Create()
         {
-            ViewData["FieldId"] = new SelectList(_context.Fields, "FieldId", "FieldName");
-            ViewData["TemplateId"] = new SelectList(_context.Templates, "TemplateId", "TemplateName");
+            ViewData["FieldName"] = new SelectList(_context.Fields, "FieldId", "FieldName");
+            ViewData["TemplateName"] = new SelectList(_context.Templates, "TemplateId", "TemplateName");
             return View();
         }
 
@@ -66,8 +66,8 @@ namespace SurplusDeficitAutomationSystem.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["FieldId"] = new SelectList(_context.Fields, "FieldId", "FieldId", templateFields.FieldId);
-            ViewData["TemplateId"] = new SelectList(_context.Templates, "TemplateId", "TemplateId", templateFields.TemplateId);
+            ViewData["FieldName"] = new SelectList(_context.Fields, "FieldId", "FieldName", templateFields.FieldId);
+            ViewData["TemplateName"] = new SelectList(_context.Templates, "TemplateId", "TemplateName", templateFields.TemplateId);
             return View(templateFields);
         }
 
@@ -84,8 +84,8 @@ namespace SurplusDeficitAutomationSystem.Controllers
             {
                 return NotFound();
             }
-            ViewData["FieldId"] = new SelectList(_context.Fields, "FieldId", "FieldId", templateFields.FieldId);
-            ViewData["TemplateId"] = new SelectList(_context.Templates, "TemplateId", "TemplateId", templateFields.TemplateId);
+            ViewData["FieldId"] = new SelectList(_context.Fields, "FieldId", "FieldName", templateFields.FieldId);
+            ViewData["TemplateId"] = new SelectList(_context.Templates, "TemplateId", "TemplateName", templateFields.TemplateId);
             return View(templateFields);
         }
 
@@ -121,8 +121,8 @@ namespace SurplusDeficitAutomationSystem.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["FieldId"] = new SelectList(_context.Fields, "FieldId", "FieldId", templateFields.FieldId);
-            ViewData["TemplateId"] = new SelectList(_context.Templates, "TemplateId", "TemplateId", templateFields.TemplateId);
+            ViewData["FieldId"] = new SelectList(_context.Fields, "FieldId", "FieldName", templateFields.FieldId);
+            ViewData["TemplateId"] = new SelectList(_context.Templates, "TemplateId", "TemplateName", templateFields.TemplateId);
             return View(templateFields);
         }
 
