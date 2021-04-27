@@ -20,9 +20,14 @@ namespace SurplusDeficitAutomationSystem
     public class Startup
     {
         private IConfiguration _config;
-        public Startup(IConfiguration config)
+        public Startup(IConfiguration config, IWebHostEnvironment env)
         {
-            _config = config;
+            _config = new ConfigurationBuilder()
+                .SetBasePath(env.ContentRootPath)
+            .AddJsonFile("appsettings.json")//next two lines allowed azure configuration to override multiple connection strings
+            .AddJsonFile($"appsettings.{env.EnvironmentName}.json")
+            .AddEnvironmentVariables().Build();
+
         }
 
         //public IConfiguration Configuration { get; }
@@ -38,6 +43,7 @@ namespace SurplusDeficitAutomationSystem
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddTransient<IMailService, SendGridMailService>();
+            services.Configure<AuthMessageSenderOptions>(_config.GetSection("Email"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

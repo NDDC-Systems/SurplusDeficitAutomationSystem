@@ -15,14 +15,14 @@ namespace SurplusDeficitAutomationSystem.Services
         public class EmailSender : IEmailSender
         {
             private IConfiguration _configuration;
-            public EmailSender(IConfiguration configuration)
+            public EmailSender(IOptions<AuthMessageSenderOptions> optionsAccessor)
             {
-                _configuration = configuration;
+                Options = optionsAccessor.Value;
             }
-
+            public AuthMessageSenderOptions Options { get; }
             public Task SendEmailAsync(string email, string subject, string message)
             {
-                return Execute(_configuration["SendGridAPIKey"], subject, message, email);
+                return Execute(Options.SendGridKey, subject, message, email);
             }
 
             public Task Execute(string apiKey, string subject, string message, string email)
@@ -30,7 +30,7 @@ namespace SurplusDeficitAutomationSystem.Services
                 var client = new SendGridClient(apiKey);
                 var msg = new SendGridMessage()
                 {
-                    From = new EmailAddress("Joe@contoso.com", "EmailAuth"),
+                    From = new EmailAddress("casteyestothesun@gmail.com", Options.SendGridUser),
                     Subject = subject,
                     PlainTextContent = message,
                     HtmlContent = message
